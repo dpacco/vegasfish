@@ -37,9 +37,9 @@ router.get('/', function(req, res, next) {
 
 // Decide if user already login before
 
-	var selectedUser = req.headers.cookie
+	var selectedUser = req.cookies.user
 
-	console.log('the cookie is ' + req.headers.cookie)
+	console.log('the cookie is ' + req.cookies.user)
 	
 
 	var page
@@ -69,13 +69,13 @@ router.get('/', function(req, res, next) {
 router.get('/report', function(req, res, next) {
 
 	var calBal = function() {
-		var userName = req.query.userName 
+		var userName = req.cookies.user 
 		var report = Number(req.query.report)
 
 		var currentBal = Number(dataUsers.users[userName].balance)
 		var newBal = (currentBal + report)
 
-		console.log(dataUsers.users[userName])
+		console.log('report for: ' + dataUsers.users[userName])
 
 		dataUsers.users[userName].balance = newBal
 
