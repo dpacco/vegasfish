@@ -111,7 +111,7 @@ router.get('/report', function(req, res, next) {
 /* GET success page */
 router.get('/success', function(req, res, next) {
 	res.render('success', {
-		title: 'Vegas 2019'
+		title: 'You are fish!'
   	});
   	console.log('Done rendering success')
 });
