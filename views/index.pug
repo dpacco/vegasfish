@@ -14,11 +14,11 @@ block content
 				| Report
 		// table
 		div.table-wrapper
-			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
 				thead
 					tr
 						th.mdl-data-table__cell--non-numeric Names
-						th Balance
+						th.mdl-data-table__header--sorted-ascending Balance
 				tbody
 				each user in users
 					tr
