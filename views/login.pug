@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	.app-wrap
+		.avatar
+		.select-user 
+			
+			button#demo-menu-lower-right.mdl-button.mdl-js-button
+				span Select user
+				//- i.material-icons more_vert 
+			ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect(for='demo-menu-lower-right')
+				each user, index in users
+					li(id=index).mdl-menu__item #{user.name}

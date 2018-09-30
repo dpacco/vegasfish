@@ -1,0 +1,25 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.mdl-data-table {
+	width: 100%;
+}
+
+.app-wrap {
+	margin: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.mdl-textfield {
+	width: 100% !important;
+}

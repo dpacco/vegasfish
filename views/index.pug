@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	.app-wrap
+		h5= title
+		p#welcome-msg Welcome to the welcome, #{selectedUser.name}
+		p#logout Not #{selectedUser.name}?
+		// from 
+		form#report-form
+			.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+				input#report-field.mdl-textfield__input(type='number')
+				label.mdl-textfield__label(for='report_field') How much?
+			button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+				| Report
+		// table
+		div.table-wrapper
+			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+				thead
+					tr
+						th.mdl-data-table__cell--non-numeric Names
+						th Balance
+				tbody
+				each user in users
+					tr
+						td.mdl-data-table__cell--non-numeric #{user.name}
+						td #{user.balance}
