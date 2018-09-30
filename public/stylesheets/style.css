@@ -60,11 +60,11 @@ form {
 
 .user-img {
     border-radius: 100px;
-    height: 100px;
+    height: 120px;
     margin-bottom: 3px;
     margin-left: 3px;
     margin-right: 12px;
     margin-top: 3px;
     overflow: hidden;
-    width: 100px;
+    width: 120px;
 }

@@ -9,6 +9,7 @@ $( document ).ready(function() {
     $(".btn").click(function(){
     	var report = $('#report-field').val()
 		$.get("/report", {report: report}, function(data) {
+			success: location.replace('/success') ;
 		});
 		$("#report-form").trigger('reset');
 		console.log('Btn fuc done!')

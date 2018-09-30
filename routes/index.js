@@ -42,12 +42,10 @@ router.get('/', function(req, res, next) {
 
 	function getTeamBal() {
 		var keys = Object.keys(dataUsers.users);
-		console.log(keys[1])
 		for (var i = 0; i < keys.length ;++i) {
 			var key = keys[i]
 			var val = dataUsers.users[key].balance;
 			teamBalance += val
-			console.log(teamBalance)
 		}
 	}
 
@@ -65,7 +63,7 @@ router.get('/', function(req, res, next) {
 			selectedUser : dataUsers.users[selectedUser],
 			teamBalance : teamBalance
 	  	});
-	  	console.log('the user is: ' + dataUsers.users[selectedUser].name)
+	  	console.log('Done pageRender')
 	};
 
 	if(selectedUser !== undefined){
@@ -97,8 +95,7 @@ router.get('/report', function(req, res, next) {
 		let data = JSON.stringify(dataUsers);  
 		fs.writeFileSync('./data_papp.json', data);
 
-		console.log('rendering: ' + page)
-
+		console.log('Start rendering success ' + page)
 		res.render(page, {
 			title: 'Papp'
 	  	});
@@ -111,5 +108,39 @@ router.get('/report', function(req, res, next) {
 
 });
 
+/* GET success page */
+router.get('/success', function(req, res, next) {
+	res.render('success', {
+		title: 'Vegas 2019'
+  	});
+  	console.log('Done rendering success')
+});
+
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
