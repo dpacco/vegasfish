@@ -3,24 +3,36 @@ extends layout
 block content
 	.app-wrap
 		h5= title
-		p#welcome-msg Welcome to the welcome, #{selectedUser.name}
-		p#logout Not #{selectedUser.name}?
-		// from 
-		form#report-form
-			.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-				input#report-field.mdl-textfield__input(type='number')
-				label.mdl-textfield__label(for='report_field') How much?
-			button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
-				| Report
+		div.mdl-card.mdl-user-card.mdl-shadow--2dp
+			.user-img-wrapper
+				img.user-img(src = selectedUser.image)
+			.user-content
+				h5 #{selectedUser.name}
+				h6#welcome-msg Welcome to the welcome 
+				.user-balance Balance: #{selectedUser.balance}
+				.team-balance Team: #{teamBalance}
+
+
+		// from
+		div.mdl-card.mdl-shadow--2dp 
+			form#report-form
+				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+					input#report-field.mdl-textfield__input(type='number')
+					label.mdl-textfield__label(for='report_field') How much?
+				button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+					| Report
 		// table
 		div.table-wrapper
 			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
 				thead
 					tr
 						th.mdl-data-table__cell--non-numeric Names
-						th.mdl-data-table__header--sorted-ascending Balance
+						th.mdl-data-table__header--sorted-ascending#balance-col Balance
 				tbody
 				each user in users
 					tr
 						td.mdl-data-table__cell--non-numeric #{user.name}
 						td #{user.balance}
+		.logout-wrapper
+			span#logout-p Not #{selectedUser.name}? 
+			span#logout switch user

@@ -38,17 +38,32 @@ router.get('/', function(req, res, next) {
 // Decide if user already login before
 
 	var selectedUser = req.cookies.user
+	var teamBalance = 0;
+
+	function getTeamBal() {
+		var keys = Object.keys(dataUsers.users);
+		console.log(keys[1])
+		for (var i = 0; i < keys.length ;++i) {
+			var key = keys[i]
+			var val = dataUsers.users[key].balance;
+			teamBalance += val
+			console.log(teamBalance)
+		}
+	}
+
+	getData('', getTeamBal)
+
 
 	console.log('the cookie is ' + req.cookies.user)
-	
 
 	var page
 	var pageRender = function(pageName) {
 		console.log('rendering: ' + pageName)
 		res.render(pageName, {
-			title: 'Papp',
+			title: 'Vegas 2019',
 			users : dataUsers.users,
-			selectedUser : dataUsers.users[selectedUser]
+			selectedUser : dataUsers.users[selectedUser],
+			teamBalance : teamBalance
 	  	});
 	  	console.log('the user is: ' + dataUsers.users[selectedUser].name)
 	};
@@ -68,29 +83,33 @@ router.get('/', function(req, res, next) {
 /* GET report */
 router.get('/report', function(req, res, next) {
 
-	var calBal = function() {
+	var calBal = function(page) {
 		var userName = req.cookies.user 
 		var report = Number(req.query.report)
 
 		var currentBal = Number(dataUsers.users[userName].balance)
 		var newBal = (currentBal + report)
 
-		console.log('report for: ' + dataUsers.users[userName])
+		console.log('report for: ' + userName)
 
 		dataUsers.users[userName].balance = newBal
 
 		let data = JSON.stringify(dataUsers);  
 		fs.writeFileSync('./data_papp.json', data);
+
+		console.log('rendering: ' + page)
+
+		res.render(page, {
+			title: 'Papp'
+	  	});
 		
 	}
-
-	getData('',calBal)
+	
+	getData('success',calBal)
 
 	// HERE WILL BE THE FUNCTION TO CALC AND PUSH THE VALUES
 
 });
-
-
 
 
 module.exports = router;

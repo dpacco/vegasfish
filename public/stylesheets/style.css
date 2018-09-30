@@ -1,5 +1,16 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+h5 {
+    margin-top: 8px !important;
+	margin-bottom: 8px !important;
+}
+
+h6 {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
 }
 
 a {
@@ -22,4 +33,38 @@ form {
 
 .mdl-textfield {
 	width: 100% !important;
+}
+
+.logout-wrapper {
+	font-size: 12px;
+}
+
+#logout {
+	color: blue;
+}
+
+.mdl-card {
+	min-height: 100px !important;
+	padding: 16px;
+	margin: 16px 0;
+	width: 100% !important;
+
+}
+
+.mdl-user-card {
+	padding: 4px !important;
+    border-radius: 100px !important;
+    flex-direction: row !important;
+
+}
+
+.user-img {
+    border-radius: 100px;
+    height: 100px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    margin-right: 12px;
+    margin-top: 3px;
+    overflow: hidden;
+    width: 100px;
 }

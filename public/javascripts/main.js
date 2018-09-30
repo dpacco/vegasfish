@@ -11,6 +11,7 @@ $( document ).ready(function() {
 		$.get("/report", {report: report}, function(data) {
 		});
 		$("#report-form").trigger('reset');
+		console.log('Btn fuc done!')
 	});
 
     // LOGIN: select user 
@@ -36,8 +37,9 @@ $( document ).ready(function() {
 	});
 
 	// Sorting table
+	var flip = false
 
-	var sortTable = function() {
+	var sortTable = function(flip) {
 	  var table, rows, switching, i, x, y, shouldSwitch;
 	  table = document.getElementById("mainTable");
 	  switching = true;
@@ -57,11 +59,24 @@ $( document ).ready(function() {
 	      x = rows[i].getElementsByTagName("TD")[1];
 	      y = rows[i + 1].getElementsByTagName("TD")[1];
 	      //check if the two rows should switch place:
-	      if (Number(x.innerHTML) < Number(y.innerHTML)) {
-	        //if so, mark as a switch and break the loop:
-	        shouldSwitch = true;
-	        break;
-	      }
+	      var a = Number(x.innerHTML)
+	      var b = Number(y.innerHTML)
+	      if(flip=0){
+		      if (a > b) {
+		        //if so, mark as a switch and break the loop:
+		        shouldSwitch = true;
+		        break;
+		      }
+		  }
+		  else{
+		  	if (a < b) {
+		        //if so, mark as a switch and break the loop:
+		        shouldSwitch = true;
+		        break;
+		      }
+		  }
+
+
 	    }
 	    if (shouldSwitch) {
 	      /*If a switch has been marked, make the switch
@@ -71,6 +86,17 @@ $( document ).ready(function() {
 	    }
 	  }
 	}
+
+	var flipSorting = function(){
+		if(flip) flip=0;
+		else flip=1
+		sortTable(flip)
+	};
+
+	$('#balance-col').click(function(event) {
+		flipSorting()
+		console.log(flip)
+	});
 
 	console.log( "ready!" );
 	sortTable()
