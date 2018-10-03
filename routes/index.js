@@ -14,6 +14,7 @@ router.use(cookieParser())
 
 /* Get user details */
 var dataUsers
+var mainImg 
 
 var getData = function(page, callback){
 	fs.readFile('./data_papp.json', 'utf8', (err, fileContents) => {
@@ -24,6 +25,7 @@ var getData = function(page, callback){
 	  try {
 	    const data = JSON.parse(fileContents)
 	    dataUsers = data
+	    mainImg = dataUsers['main-image']
 	    callback(page)
 	  } catch(err) {
 	    console.error(err)
@@ -61,7 +63,8 @@ router.get('/', function(req, res, next) {
 			title: 'Vegas 2019',
 			users : dataUsers.users,
 			selectedUser : dataUsers.users[selectedUser],
-			teamBalance : teamBalance
+			teamBalance : teamBalance,
+			mainImg: mainImg
 	  	});
 	  	console.log('Done pageRender')
 	};
@@ -82,6 +85,8 @@ router.get('/', function(req, res, next) {
 router.get('/report', function(req, res, next) {
 
 	var calBal = function(page) {
+		var date = new Date();
+		var timestamp = date.getTime();
 		var userName = req.cookies.user 
 		var report = Number(req.query.report)
 
@@ -91,6 +96,7 @@ router.get('/report', function(req, res, next) {
 		console.log('report for: ' + userName)
 
 		dataUsers.users[userName].balance = newBal
+		dataUsers.users[userName].reports.push({timestamp,report})
 
 		let data = JSON.stringify(dataUsers);  
 		fs.writeFileSync('./data_papp.json', data);

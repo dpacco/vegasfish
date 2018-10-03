@@ -33,6 +33,18 @@ block content
 					tr
 						td.mdl-data-table__cell--non-numeric #{user.name}
 						td #{user.balance}
+		// table personal reports
+		div.table-wrapper
+			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
+				thead
+					tr
+						th.mdl-data-table__cell--non-numeric Report
+						th.mdl-data-table__header--sorted-ascending#balance-col Balance
+				tbody
+				each report in selectedUser.reports
+					tr
+						td.mdl-data-table__cell--non-numeric #{report.timestamp}
+						td #{report.report}
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 
 			span#logout switch user
