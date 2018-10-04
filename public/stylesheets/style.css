@@ -1,5 +1,6 @@
 body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	/* margin: 16px 0; */
 	background-color: #ececec;
 }
 
@@ -30,6 +31,10 @@ a {
 	/* flex-wrap: wrap; */
 	/* vertical-align: middle; */
 	/* text-align: center; */
+}
+
+.table-wrapper {
+	margin: 16px 0;
 }
 
 .app-wrap.full-page {
