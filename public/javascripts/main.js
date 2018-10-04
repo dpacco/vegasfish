@@ -7,11 +7,21 @@ $( document ).ready(function() {
 
 	var user = document.cookie
 
+	var toastify = function(msg){
+		var notification = document.querySelector('.mdl-js-snackbar');
+		notification.MaterialSnackbar.showSnackbar(
+		  {
+		    message: msg
+		  }
+		);
+	}
+
 	// Send report to app
     $(".btn").click(function(){
     	var report = $('#report-field').val()
 		$.get("/report", {report: report}, function(data) {
-			success: location.replace('/success') ;
+			// success: location.replace('/success') ;
+			toastify('Adding to your balance: ' + report + '$')
 		});
 		$("#report-form").trigger('reset');
 		console.log('Btn fuc done!')
@@ -43,11 +53,23 @@ $( document ).ready(function() {
 		}
 	});
 
+	$('#personal-rec tr').each(function(index, el) {
+		var val = $(this).find('.bal-cell').html()
+		if(val < 0){
+			console.log(this)
+
+			$(this).css('color','red')
+		}
+	});
+
 	// Logout
 	$('#logout').click(function(event) {
 		document.cookie = document.cookie + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";
 		location.reload();
 	});
+
+	
+
 
 	// Sorting table
 	var flip = false

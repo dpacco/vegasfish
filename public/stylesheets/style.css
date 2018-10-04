@@ -37,6 +37,10 @@ a {
 	margin: 16px 0;
 }
 
+.bal-cell {
+	font-weight: 700;
+}
+
 .app-wrap.full-page {
 	 height: 100vh;
 	 background: #1f1f1f;

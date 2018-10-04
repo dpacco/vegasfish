@@ -21,6 +21,10 @@ block content
 					label.mdl-textfield__label(for='report_field') How much?
 			button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
 				| Report
+		.mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
+			.mdl-snackbar__text
+			button.mdl-snackbar__action(type='button')
+
 		// table
 		div.table-wrapper
 			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
@@ -35,16 +39,16 @@ block content
 						td.bal-cell #{user.balance}
 		// table personal reports
 		div.table-wrapper
-			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
+			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
 				thead
 					tr
 						th.mdl-data-table__cell--non-numeric Report
 						th.mdl-data-table__header--sorted-ascending#balance-col Balance
 				tbody
-				each report in selectedUser.reports
+				each report, index in selectedUser.reports
 					tr
-						td.mdl-data-table__cell--non-numeric #{report.timestamp}
-						td #{report.report}
+						td.mdl-data-table__cell--non-numeric #{index +1}
+						td.bal-cell #{report.report}
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 
 			span#logout switch user
