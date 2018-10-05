@@ -7,21 +7,32 @@ $( document ).ready(function() {
 
 	var user = document.cookie
 
-	var toastify = function(msg){
-		var notification = document.querySelector('.mdl-js-snackbar');
-		notification.MaterialSnackbar.showSnackbar(
-		  {
-		    message: msg
-		  }
-		);
-	}
+	if(localStorage.getItem("Status")) {
+        setTimeout(function(){
+			var toastify = function(msg){
+				var notification = document.querySelector('.mdl-js-snackbar');
+				notification.MaterialSnackbar.showSnackbar(
+				  {
+				    message: msg
+				  }
+				);
+			};
+	        toastify('Report added: ' + localStorage.getItem("recivedReport"));
+            localStorage.clear();
+        },100)
+    };
 
 	// Send report to app
     $(".btn").click(function(){
     	var report = $('#report-field').val()
 		$.get("/report", {report: report}, function(data) {
-			// success: location.replace('/success') ;
-			toastify('Adding to your balance: ' + report + '$')
+			console.log(data)
+			if (data) {
+			    localStorage.setItem("Status",data.status)
+			    localStorage.setItem("recivedReport",data.recReport)
+			    location.reload();
+			}
+			
 		});
 		$("#report-form").trigger('reset');
 		console.log('Btn fuc done!')
@@ -47,8 +58,6 @@ $( document ).ready(function() {
 	$('#mainTable tr').each(function(index, el) {
 		var val = $(this).find('.bal-cell').html()
 		if(val < 0){
-			console.log(this)
-
 			$(this).css('color','red')
 		}
 	});
@@ -56,8 +65,6 @@ $( document ).ready(function() {
 	$('#personal-rec tr').each(function(index, el) {
 		var val = $(this).find('.bal-cell').html()
 		if(val < 0){
-			console.log(this)
-
 			$(this).css('color','red')
 		}
 	});

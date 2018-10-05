@@ -101,10 +101,12 @@ router.get('/report', function(req, res, next) {
 		let data = JSON.stringify(dataUsers);  
 		fs.writeFileSync('./data_papp.json', data);
 
-		console.log('Start rendering success ' + page)
-		res.render(page, {
-			title: 'Papp'
-	  	});
+		res.send({status:'success', recReport: report})
+
+		// console.log('Start rendering success ' + page)
+		// res.render(page, {
+		// 	title: 'Papp'
+	 //  	});
 		
 	}
 	
