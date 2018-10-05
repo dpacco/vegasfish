@@ -64,7 +64,18 @@ router.get('/', function(req, res, next) {
 				var reportAll = {};
 				reportAll.name = dataUsers.users[key].name;
 				reportAll.val = dataUsers.users[key].reports[k].report
-				reportAll.time = dataUsers.users[key].reports[k].timestamp
+
+				var h = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getHours() );
+				var m = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getMinutes() );
+
+				function padZero(n) {
+				  if (n < 10) return '0' + n;
+				  return n;
+				}
+
+				var output = h + ':' + m;
+
+				reportAll.time = output
 				reportAll.img = dataUsers.users[key].image
 				teamReports.push(reportAll)
 			}

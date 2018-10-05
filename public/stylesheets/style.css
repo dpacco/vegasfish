@@ -55,6 +55,17 @@ a {
 	 padding: 16px;
 }
 
+.last-card-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.report-card {
+	margin: 8px !important;
+	width: 34% !important;
+	text-align: center;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -78,8 +89,11 @@ form {
 	min-height: 0px !important;
 	padding: 16px;
 	margin: 16px 0;
-	width: 100% !important;
+	/* width: 100% !important; */
+}
 
+.full-width {
+	width: 100% !important;
 }
 
 .mdl-user-card {

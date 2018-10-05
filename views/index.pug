@@ -2,7 +2,7 @@ extends layout
 
 block content
 	.app-wrap
-		div.mdl-card.mdl-user-card.mdl-shadow--2dp
+		div.mdl-card.mdl-user-card.mdl-shadow--2dp.full-width
 			.user-img-wrapper
 				img.user-img(src = selectedUser.image)
 			.user-content
@@ -13,7 +13,7 @@ block content
 
 
 		// from
-		div.mdl-card.mdl-shadow--2dp 
+		div.mdl-card.mdl-shadow--2dp.full-width 
 			form#report-form
 				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 					input#report-field.mdl-textfield__input(type='number')
@@ -24,32 +24,48 @@ block content
 			.mdl-snackbar__text
 			button.mdl-snackbar__action(type='button')
 
-		// last table
-		h5.table-title Last reports 
-		div.table-wrapper
-			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#lastTable
-				thead
-					//- tr
-					//- 	th.mdl-data-table__cell--non-numeric
-					//- 	th.mdl-data-table__cell--non-numeric 
-					//- 	th.mdl-data-table__header--sorted-ascending#balance-col 
-				tbody
-				each report, index in teamReports
-					if index < 3
-						tr
-							td.mdl-data-table__cell--non-numeric
-								img.table-avatar(src = report.img)
-								| #{report.name}
-							td.bal-cell #{report.val}
+		//- // last table
+		//- h5.table-title Last reports 
+		//- div.table-wrapper
+		//- 	table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#lastTable
+		//- 		tbody
+		//- 		each report, index in teamReports
+		//- 			if index < 3
+		//- 				tr
+		//- 					td.mdl-data-table__cell--non-numeric
+		//- 						img.table-avatar(src = report.img)
+		//- 						| #{report.name}
+		//- 					td #{report.time}
+		//- 					td.bal-cell #{report.val}
+
+		// last table #2
+		h5.table-title Last reports
+		.last-card-wrapper.full-width
+			each report, index in teamReports
+				if index < 3
+					.mdl-card.report-card.mdl-shadow--2dp
+						.mdl-card--expand 
+							h2.mdl-card__title-text #{report.val}$
+							if report.val > 200
+								| 🦈
+							else if report.val < 0
+								| 🐑
+							else
+								| 🐟
+						.mdl-card__supporting-text #{report.name}: #{report.time}
+						//- img.table-avatar(src = report.img)
+						
+						
+						
 
 		// score table
 		h5.table-title Players balance
 		div.table-wrapper
 			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
-				thead
-					tr
-						th.mdl-data-table__cell--non-numeric Names
-						th.mdl-data-table__header--sorted-ascending#balance-col Balance
+				//- thead
+				//- 	tr
+				//- 		th.mdl-data-table__cell--non-numeric Teams balance: #{teamBalance}
+				//- 		th.mdl-data-table__header--sorted-ascending#balance-col Balance
 				tbody
 				each user in users
 					tr
