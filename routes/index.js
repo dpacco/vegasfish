@@ -41,18 +41,48 @@ router.get('/', function(req, res, next) {
 
 	var selectedUser = req.cookies.user
 	var teamBalance = 0;
+	var teamReports = [];
 
+
+// Calculate teams balance
 	function getTeamBal() {
 		var keys = Object.keys(dataUsers.users);
 		for (var i = 0; i < keys.length ;++i) {
 			var key = keys[i]
 			var val = dataUsers.users[key].balance;
 			teamBalance += val
+		};
+	};
+
+// Last reports
+	function lastReports() {
+		var keys = Object.keys(dataUsers.users);
+		for (var i = 0; i < keys.length ;++i) {
+			var key = keys[i]
+			var val = dataUsers.users[key].reports;
+			for (var k = 0; k < val.length ; ++k) {
+				var reportAll = {};
+				reportAll.name = dataUsers.users[key].name;
+				reportAll.val = dataUsers.users[key].reports[k].report
+				reportAll.time = dataUsers.users[key].reports[k].timestamp
+				reportAll.img = dataUsers.users[key].image
+				teamReports.push(reportAll)
+			}
+		};
+
+		function compare(a,b) {
+		  if (a.time > b.time)
+		    return -1;
+		  if (a.time < b.time)
+		    return 1;
+		  return 0;
 		}
+
+		teamReports.sort(compare);
 	}
 
 	getData('', getTeamBal)
-
+	lastReports()
 
 	console.log('the cookie is ' + req.cookies.user)
 
@@ -64,6 +94,7 @@ router.get('/', function(req, res, next) {
 			users : dataUsers.users,
 			selectedUser : dataUsers.users[selectedUser],
 			teamBalance : teamBalance,
+			teamReports : teamReports,
 			mainImg: mainImg
 	  	});
 	  	console.log('Done pageRender')
@@ -111,8 +142,6 @@ router.get('/report', function(req, res, next) {
 	}
 	
 	getData('success',calBal)
-
-	// HERE WILL BE THE FUNCTION TO CALC AND PUSH THE VALUES
 
 });
 

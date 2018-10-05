@@ -69,6 +69,13 @@ $( document ).ready(function() {
 		}
 	});
 
+	$('#lastTable tr').each(function(index, el) {
+		var val = $(this).find('.bal-cell').html()
+		if(val < 0){
+			$(this).css('color','red')
+		}
+	});
+
 	// Logout
 	$('#logout').click(function(event) {
 		document.cookie = document.cookie + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";

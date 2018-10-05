@@ -41,6 +41,13 @@ a {
 	font-weight: 700;
 }
 
+.table-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 24px;
+    margin-right: 16px;
+}
+
 .app-wrap.full-page {
 	 height: 100vh;
 	 background: #1f1f1f;
