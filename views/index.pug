@@ -2,14 +2,15 @@ extends layout
 
 block content
 	.app-wrap
-		div.mdl-card.mdl-user-card.mdl-shadow--2dp.full-width
-			.user-img-wrapper
-				img.user-img(src = selectedUser.image)
+		div.mdl-user-card.mdl-shadow--2dp
 			.user-content
-				h5 #{selectedUser.name}
-				h6#welcome-msg Welcome to the welcome 
-				.user-balance Balance: #{selectedUser.balance}
-				.team-balance Team: #{teamBalance}
+				.user-img-wrapper
+					img.user-img(src = selectedUser.image)
+					h5 #{selectedUser.name}
+				.user-balance #{selectedUser.balance}$
+				.team-balance #{teamBalance}$
+
+		div.mdl-user-card.holder
 
 
 		// from
@@ -42,17 +43,19 @@ block content
 		h5.table-title Last reports
 		.last-card-wrapper.full-width
 			each report, index in teamReports
-				if index < 3
+				if index < 10
 					.mdl-card.report-card.mdl-shadow--2dp
-						.mdl-card--expand 
+						.mdl-card--expand
+						img(src = report.img)
+						.report-val
 							h2.mdl-card__title-text #{report.val}$
-							if report.val > 200
-								| 🦈
-							else if report.val < 0
-								| 🐑
-							else
-								| 🐟
-						.mdl-card__supporting-text #{report.name}: #{report.time}
+						if report.val > 200
+							| 🦈
+						else if report.val < 0
+							| 🐑
+						else
+							| 🐟
+						.mdl-card__supporting-text.report-time #{report.time}
 						//- img.table-avatar(src = report.img)
 						
 						
