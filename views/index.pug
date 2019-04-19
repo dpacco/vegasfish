@@ -13,14 +13,27 @@ block content
 		div.mdl-user-card.holder
 
 
-		// from
-		div.mdl-card.mdl-shadow--2dp.full-width 
+		// form
+		div.mdl-card.mdl-shadow--2dp.full-width
 			form#report-form
 				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-					input#report-field.mdl-textfield__input(type='number')
+					input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
 					label.mdl-textfield__label(for='report_field') How much?
-			button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+					//radio
+				label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash1')
+					input#flash1.mdl-radio__button(checked='', name='flash', type='radio', value='on')
+					span.mdl-radio__label ☀️ 
+				label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash2')
+					input#flash2.mdl-radio__button(name='flash', type='radio', value='off')
+					span.mdl-radio__label 🌧
+			button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide()')
 				| Report
+		div.pop-up
+			div.pop-up-content.mdl-card.mdl-shadow--2dp.full-width
+				h5 You're about to report 200$
+				button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+					| Send report
+
 		.mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
 			.mdl-snackbar__text
 			button.mdl-snackbar__action(type='button')

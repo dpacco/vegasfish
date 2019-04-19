@@ -12,26 +12,48 @@ var $ = jQuery = require('jquery')(window);
 
 router.use(cookieParser())
 
-/* Get user details */
+ // s3 handling
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
+
+/* Get user details from s3 */
+
 var dataUsers
 var mainImg 
 
 var getData = function(page, callback){
-	fs.readFile('./data_papp.json', 'utf8', (err, fileContents) => {
-	  if (err) {
-	    console.error(err)
-	    return
-	  }
-	  try {
-	    const data = JSON.parse(fileContents)
-	    dataUsers = data
-	    mainImg = dataUsers['main-image']
-	    callback(page)
-	  } catch(err) {
-	    console.error(err)
-	  }
-	})
+	s3.getObject({Bucket: 'pappdata', Key: 'data_papp.json'}, function(err, fileContent) {
+		if (err) console.log(err, err.stack); // an error occurred
+		else {
+		  console.log(JSON.parse(fileContent.Body));           // successful response
+	      const data = JSON.parse(fileContent.Body)
+	      dataUsers = data
+	      mainImg = dataUsers['main-image']
+	      callback(page)
+		}
+	});
 }
+
+/* Get user details  */
+// var dataUsers
+// var mainImg 
+
+// var getData = function(page, callback){
+// 	fs.readFile('./data_papp.json', 'utf8', (err, fileContents) => {
+// 	  if (err) {
+// 	    console.error(err)
+// 	    return
+// 	  }
+// 	  try {
+// 	    const data = JSON.parse(fileContents)
+// 	    dataUsers = data
+// 	    mainImg = dataUsers['main-image']
+// 	    callback(page)
+// 	  } catch(err) {
+// 	    console.error(err)
+// 	  }
+// 	})
+// }
 
 /* GET home page. */
 
@@ -141,7 +163,18 @@ router.get('/report', function(req, res, next) {
 		dataUsers.users[userName].reports.push({timestamp,report})
 
 		let data = JSON.stringify(dataUsers);  
-		fs.writeFileSync('./data_papp.json', data);
+
+		// fs.writeFileSync('./data_papp.json', data);
+
+		s3.putObject({Bucket: 'pappdata', Key: 'data_papp.json', Body: data}, function(err, data) {
+
+	       if (err) {
+	           console.log(err)
+	       } else {
+	           console.log("Successfully uploaded data to myBucket/myKey");
+	       }
+
+	    });
 
 		res.send({status:'success', recReport: report})
 

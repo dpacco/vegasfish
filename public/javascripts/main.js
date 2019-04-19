@@ -152,3 +152,8 @@ $( document ).ready(function() {
 
 });
 
+var showHide = function(){
+	$('.pop-up').toggle()
+	console.log( "showhide done" );
+};
+

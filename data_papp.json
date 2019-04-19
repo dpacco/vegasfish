@@ -1,1 +1,73 @@
-{"users":{"dort":{"name":"Dortal","balance":3285,"reports":[{"timestamp":1538735210257,"report":233},{"timestamp":1538735215521,"report":-100},{"timestamp":1538735645413,"report":-200},{"timestamp":1538737596932,"report":0},{"timestamp":1538737601162,"report":0},{"timestamp":1538737602741,"report":0},{"timestamp":1538737606714,"report":2},{"timestamp":1538738517759,"report":2200},{"timestamp":1538740945371,"report":0},{"timestamp":1538741516106,"report":-100},{"timestamp":1538741662725,"report":100},{"timestamp":1538741668515,"report":230},{"timestamp":1538741681804,"report":201},{"timestamp":1538741690220,"report":202},{"timestamp":1538741695081,"report":203},{"timestamp":1538741704148,"report":0},{"timestamp":1538741710290,"report":1},{"timestamp":1538741712813,"report":2},{"timestamp":1538741716596,"report":3},{"timestamp":1538741720403,"report":4},{"timestamp":1538741724178,"report":5},{"timestamp":1538741781053,"report":23},{"timestamp":1538741786557,"report":24},{"timestamp":1538741790064,"report":25},{"timestamp":1538741795141,"report":26},{"timestamp":1538741800886,"report":100},{"timestamp":1538741813979,"report":101}],"image":"./images/dort.jpg"},"nadavg":{"name":"Nadav","balance":1194,"reports":[{"timestamp":1538732266906,"report":1},{"timestamp":1538732287863,"report":2},{"timestamp":1538732329468,"report":6},{"timestamp":1538733002018,"report":22},{"timestamp":1538733073298,"report":22},{"timestamp":1538733251956,"report":232},{"timestamp":1538733313812,"report":909}],"image":"./images/nadavg.jpg"},"michalc":{"name":"Michali","balance":1029,"reports":[{"timestamp":1538732301063,"report":3},{"timestamp":1538732307959,"report":4},{"timestamp":1538733330345,"report":22},{"timestamp":1538734266064,"report":23},{"timestamp":1538734271514,"report":-23},{"timestamp":1538735662448,"report":200},{"timestamp":1538735800448,"report":400},{"timestamp":1538740796623,"report":400}],"image":"./images/michalc.jpg"},"sagil":{"name":"Sagi","balance":0,"reports":[],"image":"./images/sagil.jpg"},"dorp":{"name":"Dor","balance":0,"reports":[],"image":"./images/dorp.jpg"},"noamg":{"name":"Noram","balance":5,"reports":[{"timestamp":1538732318930,"report":5}],"image":"./images/noamg.jpg"},"dolevd":{"name":"Dolev","balance":0,"reports":[],"image":"./images/dolevd.jpg"},"yohain":{"name":"Yohai","balance":0,"reports":[],"image":"./images/yohain.jpg"},"yonig":{"name":"Yoni","balance":0,"reports":[],"image":"./images/yonig.jpg"},"liorg":{"name":"Lior","balance":0,"reports":[],"image":"./images/liorg.jpg"},"eladh":{"name":"Neshek","balance":0,"reports":[],"image":"./images/eladh.jpg"}},"main-image":"https://dynaimage.cdn.cnn.com/cnn/q_auto,w_900,c_fill,g_auto,h_506,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F180313182911-01-las-vegas-travel-strip.jpg"}
+{
+  "main-image": "https://dynaimage.cdn.cnn.com/cnn/q_auto,w_900,c_fill,g_auto,h_506,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F180313182911-01-las-vegas-travel-strip.jpg",
+  "users": {
+    "dolevd": {
+      "balance": 0,
+      "image": "./images/dolevd.jpg",
+      "name": "Dolev",
+      "reports": []
+    },
+    "dorp": {
+      "balance": 0,
+      "image": "./images/dorp.jpg",
+      "name": "Dor",
+      "reports": [
+      ]
+    },
+    "dort": {
+      "balance": 0,
+      "image": "./images/dort.jpg",
+      "name": "Dortal",
+      "reports": []
+    },
+    "eladh": {
+      "balance": 0,
+      "image": "./images/eladh.jpg",
+      "name": "Neshek",
+      "reports": []
+    },
+    "liorg": {
+      "balance": 0,
+      "image": "./images/liorg.jpg",
+      "name": "Lior",
+      "reports": []
+    },
+    "michalc": {
+      "balance": 0,
+      "image": "./images/michalc.jpg",
+      "name": "Michali",
+      "reports": [
+      ]
+    },
+    "nadavg": {
+      "balance": 0,
+      "image": "./images/nadavg.jpg",
+      "name": "Nadav",
+      "reports": []
+    },
+    "noamg": {
+      "balance": 0,
+      "image": "./images/noamg.jpg",
+      "name": "Noram",
+      "reports": []
+    },
+    "sagil": {
+      "balance": 0,
+      "image": "./images/sagil.jpg",
+      "name": "Sagi",
+      "reports": []
+    },
+    "yohain": {
+      "balance": 0,
+      "image": "./images/yohain.jpg",
+      "name": "Yohai",
+      "reports": []
+    },
+    "yonig": {
+      "balance": 0,
+      "image": "./images/yonig.jpg",
+      "name": "Yoni",
+      "reports": []
+    }
+  }
+}

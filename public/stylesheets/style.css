@@ -128,7 +128,7 @@ form {
 	margin: 16px 0;
 	/* width: 100% !important; */
 	/* overflow: visible; */
-	/* margin: 0; */
+	margin: 0;
 }
 
 .full-width {
@@ -241,6 +241,24 @@ form {
 	font-family: pacifico;
 }
 
+.pop-up {
+    position: absolute !important;
+    z-index: 9999 !important;
+    top: 0;
+    /* margin: auto; */
+    left: 0 !important;
+    height: 100%;
+    background-color: #00000094;
+    display: flex;
+    /* justify-content: space-evenly; */
+    width: 100%;
+    display: none;
+}
+
+.pop-up-content{
+  /* margin: 32px; */
+  height: min-content;
+}
 
 @-webkit-keyframes neon3 {
   from {
