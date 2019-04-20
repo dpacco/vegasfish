@@ -247,9 +247,9 @@ form {
 }
 
 .pop-up {
-    position: absolute !important;
+    position: fixed;
     z-index: 9999 !important;
-    top: 0;
+    bottom: 0;
     /* margin: auto; */
     left: 0 !important;
     height: 100%;
@@ -263,8 +263,8 @@ form {
 .pop-up-content{
   position: absolute;
   width: 100%;
-  top:50%;
-  height: 50%;
+  bottom: 0;
+  height: fit-content;
   overflow: hidden;
   transition: all 3s;
   border-radius: 16px 16px 0 0;
@@ -278,6 +278,11 @@ form {
 
 .pop-up-content h5 {
   margin: auto;
+}
+
+.pop-up-content-btns-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .pop-up-icon {
