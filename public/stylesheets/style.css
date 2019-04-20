@@ -33,6 +33,11 @@ a {
 	/* text-align: center; */
 }
 
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .table-wrapper {
 	margin: 16px 0;
 }
@@ -257,10 +262,26 @@ form {
 
 .pop-up-content{
   /* margin: 32px; */
-  height: 50%;
+  /* height: 50%; */
   position: absolute;
   bottom: 0;
   border-radius: 16px 16px 0 0;
+  background-color: #ffffff;
+}
+
+.pop-up-content h5 {
+  margin: auto;
+}
+
+.pop-up-icon {
+  font-size: 74px;
+  margin: auto;
+}
+
+#pop-up-amount {
+  margin: 32px auto;
+  font-size: 2em;
+  font-weight: 900;
 }
 
 @-webkit-keyframes neon3 {

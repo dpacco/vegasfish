@@ -23,7 +23,7 @@ $( document ).ready(function() {
     };
 
 	// Send report to app
-    $(".btn").click(function(){
+    $("#btn-send").click(function(){
     	var report = $('#report-field').val()
 		$.get("/report", {report: report}, function(data) {
 			console.log(data)
@@ -36,6 +36,10 @@ $( document ).ready(function() {
 		});
 		$("#report-form").trigger('reset');
 		console.log('Btn fuc done!')
+	});
+
+	$("#btn-cancel").click(function(){
+		showHide();
 	});
 
     // LOGIN: select user 
@@ -154,13 +158,42 @@ $( document ).ready(function() {
 
 });
 
-var inputAmount = function(){
-	var val = $('#report-field')[0].value
-	$('#pop-up-amount').html(val);
+var inputAmount = function(weather){
+	var posNeg = '';
+	if(weather == wet){
+		posNeg = '-';
+		$('#report-field')[0].value = -Math.abs($('#report-field')[0].value)
+		$('.pop-up-icon').html('🌧');
+		$('#btn-send').addClass('mdl-button--accent');
+		$('#btn-cancel').addClass('mdl-button--accent');
+	}
+	else {
+		$('#report-field')[0].value = Math.abs($('#report-field')[0].value)
+		$('.pop-up-icon').html('☀️');
+		$('#btn-send').addClass('mdl-button--colored');
+		$('#btn-cancel').addClass('mdl-button--colored');
+	}
+	var val = $('#report-field')[0].value;
+	$('#pop-up-amount').html(val +'$');
 }
 
 var showHide = function(){
 	$('.pop-up').toggle()
+	$('#btn-send').removeClass('mdl-button--accent');
+	$('#btn-cancel').removeClass('mdl-button--accent');
+	$('#btn-send').removeClass('mdl-button--colored');
+	$('#btn-cancel').removeClass('mdl-button--colored');
 	console.log( "showhide done" );
 };
+
+//disable btn when no input
+$(document).ready(function(){
+    $('.dry-wet').attr('disabled',true);
+    $('#report-field').keyup(function(){
+        if($(this).val().length !=0)
+            $('.dry-wet').attr('disabled', false);            
+        else
+            $('.dry-wet').attr('disabled',true);
+    })
+});
 
