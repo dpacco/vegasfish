@@ -18,7 +18,7 @@ block content
 			form#report-form
 				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 					input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
-					label.mdl-textfield__label(for='report_field') How much?
+					label#report-label.mdl-textfield__label(for='report_field') How much?
 
 					//radio
 				//- label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash1')
@@ -64,58 +64,61 @@ block content
 		//- 					td.bal-cell #{report.val}
 
 		// last table #2
-		h5.table-title Last reports
-		.last-card-wrapper.full-width
-			each report, index in teamReports
-				if index < 10
-					.mdl-card.report-card.mdl-shadow--2dp
-						.mdl-card--expand
-						img(src = report.img)
-						.report-val
-							h2.mdl-card__title-text #{report.val}$
-						if report.val > 200
-							| 🦈
-						else if report.val < 0
-							| 🐑
-						else
-							| 🐟
-						.mdl-card__supporting-text.report-time #{report.time}
-						//- img.table-avatar(src = report.img)
+		.section
+			h5.table-title Last reports
+			.last-card-wrapper.full-width
+				each report, index in teamReports
+					if index < 10
+						.mdl-card.report-card.mdl-shadow--2dp
+							.mdl-card--expand
+							img(src = report.img)
+							.report-val
+								h2.mdl-card__title-text #{report.val}$
+							if report.val > 200
+								| 🦈
+							else if report.val < 0
+								| 🐑
+							else
+								| 🐟
+							.mdl-card__supporting-text.report-time #{report.time}
+							//- img.table-avatar(src = report.img)
 						
 						
 						
 
 		// score table
-		h5.table-title Players balance (#{teamBalance}$)
-		div.table-wrapper
-			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
-				//- thead
-				//- 	tr
-				//- 		th.mdl-data-table__cell--non-numeric Teams balance: #{teamBalance}
-				//- 		th.mdl-data-table__header--sorted-ascending#balance-col Balance
-				tbody
-				each user in users
-					tr
-						td.mdl-data-table__cell--non-numeric 
-							img.table-avatar(src = user.image)
-							| #{user.name}
-						td.bal-cell #{user.balance}
+		.section
+			h5.table-title Players balance (#{teamBalance}$)
+			div.table-wrapper
+				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
+					//- thead
+					//- 	tr
+					//- 		th.mdl-data-table__cell--non-numeric Teams balance: #{teamBalance}
+					//- 		th.mdl-data-table__header--sorted-ascending#balance-col Balance
+					tbody
+					each user in users
+						tr
+							td.mdl-data-table__cell--non-numeric 
+								img.table-avatar(src = user.image)
+								| #{user.name}
+							td.bal-cell #{user.balance}
 
 		// table personal reports
-		h5.table-title Personal reports
-		div.table-wrapper
-			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
-				thead
-					tr
-						//- th.mdl-data-table__cell--non-numeric Report
-						th.mdl-data-table__cell--non-numeric Time
-						th.mdl-data-table__header--sorted-ascending#balance-col Balance
-				tbody
-				each report, index in selectedUser.reports
-					tr
-						//- td.mdl-data-table__cell--non-numeric #{index +1}
-						td.bal-cell.personal-report-time #{report.timestamp}
-						td.bal-cell #{report.report}
+		.section
+			h5.table-title Personal reports
+			div.table-wrapper
+				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
+					thead
+						tr
+							//- th.mdl-data-table__cell--non-numeric Report
+							th.mdl-data-table__cell--non-numeric Time
+							th.mdl-data-table__header--sorted-ascending#balance-col Balance
+					tbody
+					each report, index in selectedUser.reports
+						tr
+							//- td.mdl-data-table__cell--non-numeric #{index +1}
+							td.bal-cell.personal-report-time #{report.timestamp}
+							td.bal-cell #{report.report}
 
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 

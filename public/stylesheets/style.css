@@ -1,12 +1,18 @@
 body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	/* margin: 16px 0; */
-	background-color: #f7f7f7;
+	background-color: #efefef;
+}
+
+h2 {
+  font-weight: 700;
 }
 
 h5 {
     margin-top: 8px !important;
     margin-bottom: 8px !important;
+    font-weight: 400;
+    color: #505050;
 }
 
 h6 {
@@ -23,6 +29,18 @@ a {
 	width: 100%;
 	border-color: transparent;
 	/* border: none; */
+}
+
+.section {
+  margin-top:32px;
+}
+
+#report-field {
+  font-size: 50px;
+}
+
+.mdl-textfield__label {
+  font-size: 50px;
 }
 
 .app-wrap {
@@ -84,6 +102,14 @@ a {
 	width: 100%;
 }
 
+.user-content h5{
+  /* font-size: 3rem; */
+}
+
+.user-content .user-balance {
+  font-size: 1.5rem
+}
+
 .report-card {
 	margin: 8px !important;
 	min-width: 146px !important;
@@ -119,6 +145,7 @@ form {
 
 .mdl-textfield {
 	width: 100% !important;
+	/* background-color: white; */
 }
 
 .logout-wrapper {
