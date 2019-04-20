@@ -82,6 +82,8 @@ $( document ).ready(function() {
 		location.reload();
 	});
 
+
+
 	
 
 
@@ -151,6 +153,11 @@ $( document ).ready(function() {
 	sortTable()
 
 });
+
+var inputAmount = function(){
+	var val = $('#report-field')[0].value
+	$('#pop-up-amount').html(val);
+}
 
 var showHide = function(){
 	$('.pop-up').toggle()

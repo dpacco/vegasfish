@@ -26,14 +26,19 @@ block content
 				label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash2')
 					input#flash2.mdl-radio__button(name='flash', type='radio', value='off')
 					span.mdl-radio__label 🌧
-			button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide()')
+			button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount()')
 				| Report
+
+		//Popup
 		div.pop-up
 			div.pop-up-content.mdl-card.mdl-shadow--2dp.full-width
-				h5 You're about to report 200$
+				h5 You're about to report 
+				#pop-up-amount
+					|TEST
 				button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
 					| Send report
-
+				button.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+					| cancel
 		.mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
 			.mdl-snackbar__text
 			button.mdl-snackbar__action(type='button')
