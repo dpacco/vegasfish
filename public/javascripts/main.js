@@ -19,7 +19,7 @@ $( document ).ready(function() {
 			};
 	        toastify('Report added: ' + localStorage.getItem("recivedReport"));
             localStorage.clear();
-        },100)
+        },300)
     };
 
 	// Send report to app
