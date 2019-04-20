@@ -153,6 +153,21 @@ $( document ).ready(function() {
 		console.log(flip)
 	});
 
+
+//dealing with time formating
+	$('.report-time').each(function(index, el) {
+		var d = new Date($(this).html())
+		var newTime = d.toLocaleString()
+		$(this).html(newTime)
+	});
+
+	$('.personal-report-time').each(function(index, el) {
+		var timestamp = parseInt($(this).html())
+		var newTime = new Date(timestamp).toLocaleString()
+		$(this).html(newTime)
+	});
+
+
 	console.log( "ready!" );
 	sortTable()
 

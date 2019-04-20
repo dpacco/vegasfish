@@ -7,8 +7,8 @@ block content
 				.user-img-wrapper
 					img.user-img(src = selectedUser.image)
 					h5 #{selectedUser.name}
-				.user-balance #{selectedUser.balance}$
-				.team-balance #{teamBalance}$
+				h5.user-balance #{selectedUser.balance}$
+				//- .team-balance #{teamBalance}$
 
 		div.mdl-user-card.holder
 
@@ -86,7 +86,7 @@ block content
 						
 
 		// score table
-		h5.table-title Players balance
+		h5.table-title Players balance (#{teamBalance}$)
 		div.table-wrapper
 			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
 				//- thead
@@ -107,13 +107,16 @@ block content
 			table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
 				thead
 					tr
-						th.mdl-data-table__cell--non-numeric Report
+						//- th.mdl-data-table__cell--non-numeric Report
+						th.mdl-data-table__cell--non-numeric Time
 						th.mdl-data-table__header--sorted-ascending#balance-col Balance
 				tbody
 				each report, index in selectedUser.reports
 					tr
-						td.mdl-data-table__cell--non-numeric #{index +1}
+						//- td.mdl-data-table__cell--non-numeric #{index +1}
+						td.bal-cell.personal-report-time #{report.timestamp}
 						td.bal-cell #{report.report}
+
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 
 			span#logout switch user

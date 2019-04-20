@@ -87,17 +87,17 @@ router.get('/', function(req, res, next) {
 				reportAll.name = dataUsers.users[key].name;
 				reportAll.val = dataUsers.users[key].reports[k].report
 
-				var h = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getHours() );
-				var m = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getMinutes() );
+				// var h = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getHours() );
+				// var m = padZero(new Date(dataUsers.users[key].reports[k].timestamp).getMinutes() );
 
-				function padZero(n) {
-				  if (n < 10) return '0' + n;
-				  return n;
-				}
+				// function padZero(n) {
+				//   if (n < 10) return '0' + n;
+				//   return n;
+				// }
 
-				var output = h + ':' + m;
+				// var output = h + ':' + m;
 
-				reportAll.time = output
+				reportAll.time = new Date(dataUsers.users[key].reports[k].timestamp)
 				reportAll.img = dataUsers.users[key].image
 				teamReports.push(reportAll)
 			}
