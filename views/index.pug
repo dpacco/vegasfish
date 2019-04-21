@@ -65,10 +65,10 @@ block content
 
 		// last table #2
 		.section
-			h5.table-title Last reports
+			//- h5.table-title Last reports
 			.last-card-wrapper.full-width
 				each report, index in teamReports
-					if index < 10
+					if index < 20
 						.mdl-card.report-card.mdl-shadow--2dp
 							.mdl-card--expand
 							img(src = report.img)
@@ -102,6 +102,13 @@ block content
 								img.table-avatar(src = user.image)
 								| #{user.name}
 							td.bal-cell #{user.balance}
+							td
+								if user.balance > 200
+									| 🦈
+								else if user.balance < 0
+									| 🐑
+								else
+									| 🐟
 
 		// table personal reports
 		.section
@@ -110,13 +117,13 @@ block content
 				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
 					thead
 						tr
-							//- th.mdl-data-table__cell--non-numeric Report
+							th.mdl-data-table__cell--non-numeric Report
 							th.mdl-data-table__cell--non-numeric Time
 							th.mdl-data-table__header--sorted-ascending#balance-col Balance
 					tbody
 					each report, index in selectedUser.reports
 						tr
-							//- td.mdl-data-table__cell--non-numeric #{index +1}
+							td.mdl-data-table__cell--non-numeric #{index +1}
 							td.bal-cell.personal-report-time #{report.timestamp}
 							td.bal-cell #{report.report}
 

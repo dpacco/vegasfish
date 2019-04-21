@@ -157,14 +157,21 @@ $( document ).ready(function() {
 //dealing with time formating
 	$('.report-time').each(function(index, el) {
 		var d = new Date($(this).html())
-		var newTime = d.toLocaleString()
-		$(this).html(newTime)
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+		var hour = d.getHours()
+		var min = d.getMinutes()
+
+		$(this).html( days[d.getDay()] + " " + hour + ":" + min)
 	});
 
 	$('.personal-report-time').each(function(index, el) {
-		var timestamp = parseInt($(this).html())
-		var newTime = new Date(timestamp).toLocaleString()
-		$(this).html(newTime)
+		var unixTimestamp = parseInt($(this).html());
+		var d = new Date(unixTimestamp);
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+		var hour = d.getHours()
+		var min = d.getMinutes()
+
+		$(this).html( days[d.getDay()] + " " + hour + ":" + min)
 	});
 
 
