@@ -82,7 +82,7 @@ block content
 										img.table-avatar(src = user.image)
 										| #{user.name}
 									td.bal-cell #{user.balance}
-									td
+									td.bal-icon
 										if user.balance > 200
 											| 🦈
 										else if user.balance < 0
