@@ -191,7 +191,7 @@ $( document ).ready(function() {
 			reports.push(allReports)
 		});
 
-		setTimeout(function(){
+		// setTimeout(function(){
 			new Chartist.Line('.ct-chart', {
 			  // labels: names,
 			  className: 'test',
@@ -202,7 +202,7 @@ $( document ).ready(function() {
 			    right: 40
 			  }
 			});
-		}, 2000)
+		// }, 2000)
 		console.log('chart loaded')
 	}
 
