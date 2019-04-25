@@ -111,8 +111,8 @@ $( document ).ready(function() {
 	      shouldSwitch = false;
 	      /*Get the two elements you want to compare,
 	      one from current row and one from the next:*/
-	      x = rows[i].getElementsByTagName("TD")[1];
-	      y = rows[i + 1].getElementsByTagName("TD")[1];
+	      x = rows[i].getElementsByTagName("td")[1];
+	      y = rows[i + 1].getElementsByTagName("td")[1];
 	      //check if the two rows should switch place:
 	      var a = Number(x.innerHTML)
 	      var b = Number(y.innerHTML)
