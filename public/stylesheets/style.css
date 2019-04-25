@@ -28,6 +28,10 @@ a {
   color: #00B7FF;
 }
 
+.mdl-tabs {
+  padding-top: 64px;
+}
+
 .mdl-data-table {
 	/* border-radius: 16px; */
 	width: 100%;
@@ -84,6 +88,10 @@ a {
 
 .players-reports .table-wrapper {
   margin: 16px;
+}
+
+.players-reports {
+  margin-top: -32px;
 }
 
 .bal-cell {
@@ -197,12 +205,15 @@ form {
 	border-radius: 16px;
 }
 
+.input-card {
+  margin-top: 16px;
+}
 .full-width {
 	width: 100% !important;
 }
 
 .mdl-user-card {
-	height: 79px;
+	height: 80px;
 	background-color: rgb(63,81,181);
 	/* color: white; */
 	position: fixed;
@@ -211,6 +222,7 @@ form {
 	width: 100%;
 	display: flex;
 	z-index: 420;
+	/* flex-direction: column; */
 }
 
 .user-img {

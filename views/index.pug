@@ -10,100 +10,108 @@ block content
 				h5.user-balance $#{selectedUser.balance}
 				//- .team-balance #{teamBalance}$
 
-		div.mdl-user-card.holder
+		//- div.mdl-user-card.holder
+
+		//tabs
+		.mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+			.mdl-tabs__tab-bar.carusel
+				a.mdl-tabs__tab.is-active(href='#home') Home
+				a.mdl-tabs__tab(href='#personal-reports-tab') Personal reports
+
+			.mdl-tabs__panel.is-active#home
+				// form
+				div.mdl-card.mdl-shadow--2dp.full-width.input-card
+					form#report-form
+						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+							input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
+							label#report-label.mdl-textfield__label(for='report_field') How much?
+
+					div.btns-container
+						button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
+							| Dry ☀️
+						button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount(wet)')
+							| Wet 🌧
+
+				//Popup
+				div.pop-up
+					div.pop-up-content.mdl-card.mdl-shadow--2dp.full-width
+						.pop-up-icon
+						h5 You're about to report 
+						#pop-up-amount
+							|TEST
+						div.pop-up-content-btns-container
+							button.btn#btn-send.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect
+								| Send report
+							button.btn#btn-cancel.mdl-button.mdl-js-button.mdl-js-ripple-effect
+								| cancel
+				.mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
+					.mdl-snackbar__text
+					button.mdl-snackbar__action(type='button')
 
 
-		// form
-		div.mdl-card.mdl-shadow--2dp.full-width
-			form#report-form
-				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-					input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
-					label#report-label.mdl-textfield__label(for='report_field') How much?
+				// last table #2
+				.section.carusel
+					//- h5.table-title Last reports
+					.last-card-wrapper.full-width
+						each report, index in teamReports
+							if index < 20
+								.mdl-card.report-card.mdl-shadow--2dp
+									.mdl-card--expand
+									img(src = report.img)
+									.report-val
+										h2.mdl-card__title-text #{report.val}$
+									if report.val > 200
+										| 🦈
+									else if report.val < 0
+										| 🐑
+									else
+										| 🐟
+									.mdl-card__supporting-text.report-time #{report.time}
+									//- img.table-avatar(src = report.img)
+											
+				// score table
+				.section
+					h5.table-title Players balance 
+						span #{teamBalance}$
+					div.table-wrapper
+						table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
+							tbody
+							each user, key in users
+								tr(class=user.balance > -1 ? "" : "negative-report")
+									td.mdl-data-table__cell--non-numeric 
+										img.table-avatar(src = user.image)
+										| #{user.name}
+									td.bal-cell #{user.balance}$
+									td
+										if user.balance > 200
+											| 🦈
+										else if user.balance < 0
+											| 🐑
+										else
+											| 🐟
 
-			div.btns-container
-				button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
-					| Dry ☀️
-				button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount(wet)')
-					| Wet 🌧
-
-		//Popup
-		div.pop-up
-			div.pop-up-content.mdl-card.mdl-shadow--2dp.full-width
-				.pop-up-icon
-				h5 You're about to report 
-				#pop-up-amount
-					|TEST
-				div.pop-up-content-btns-container
-					button.btn#btn-send.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect
-						| Send report
-					button.btn#btn-cancel.mdl-button.mdl-js-button.mdl-js-ripple-effect
-						| cancel
-		.mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
-			.mdl-snackbar__text
-			button.mdl-snackbar__action(type='button')
-
-
-		// last table #2
-		.section.carusel
-			//- h5.table-title Last reports
-			.last-card-wrapper.full-width
-				each report, index in teamReports
-					if index < 20
-						.mdl-card.report-card.mdl-shadow--2dp
-							.mdl-card--expand
-							img(src = report.img)
-							.report-val
-								h2.mdl-card__title-text #{report.val}$
-							if report.val > 200
-								| 🦈
-							else if report.val < 0
-								| 🐑
-							else
-								| 🐟
-							.mdl-card__supporting-text.report-time #{report.time}
-							//- img.table-avatar(src = report.img)
-									
-		// score table
-		.section
-			h5.table-title Players balance 
-				span #{teamBalance}$
-			div.table-wrapper
-				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
-					tbody
+			.mdl-tabs__panel.is-active#personal-reports-tab
+				// personal report
+				.section.last-card-wrapper.carusel.players-reports
 					each user, key in users
-						tr(class=user.balance > -1 ? "" : "negative-report")
-							td.mdl-data-table__cell--non-numeric 
-								img.table-avatar(src = user.image)
-								| #{user.name}
-							td.bal-cell #{user.balance}$
-							td
-								if user.balance > 200
-									| 🦈
-								else if user.balance < 0
-									| 🐑
-								else
-									| 🐟
-		// personal report
-		.section.last-card-wrapper.carusel.players-reports
-			each user, key in users
-				div.table-wrapper
-					h5.table-title
-						span
-							img.table-avatar(src = users[key].image)
-							| #{users[key].name} 
-						span #{users[key].balance}$
-					table#personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
-						thead
-							tr
-								th.mdl-data-table__cell--non-numeric Session
-								th.mdl-data-table__cell--non-numeric Time
-								th.mdl-data-table__header#balance-col 💸
-						tbody
-						each report, index in users[key].reports
-							tr(class=report.report > 0 ? "" : "negative-report")
-								td.mdl-data-table__cell--non-numeric #{index +1}
-								td.bal-cell.personal-report-time #{report.timestamp}
-								td.bal-cell #{report.report}
+						div.table-wrapper
+							h5.table-title
+								span
+									img.table-avatar(src = users[key].image)
+									| #{users[key].name} 
+								span #{users[key].balance}$
+							table#personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+								thead
+									tr
+										th.mdl-data-table__cell--non-numeric Session
+										th.mdl-data-table__cell--non-numeric Time
+										th.mdl-data-table__header#balance-col 💸
+								tbody
+								each report, index in users[key].reports
+									tr(class=report.report > 0 ? "" : "negative-report")
+										td.mdl-data-table__cell--non-numeric #{index +1}
+										td.bal-cell.personal-report-time #{report.timestamp}
+										td.bal-cell #{report.report}
 
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 
