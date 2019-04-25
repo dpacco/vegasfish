@@ -92,13 +92,16 @@ block content
 
 			.mdl-tabs__panel#personal-reports-tab
 				// personal report
+
+				//Graph
 				.ct-chart.ct-perfect-fourth
+
 				.section.last-card-wrapper.carusel.players-reports
 					each user, key in users
 						div.table-wrapper.personal-report-table
 							h6.table-title
 								span.personal-reports-avatar-container
-									img.personal-reports-avatar.table-avatar(src = users[key].image)
+									img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
 									|#{users[key].name} 
 								span.personal-reports-report #{users[key].balance}$
 							table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp

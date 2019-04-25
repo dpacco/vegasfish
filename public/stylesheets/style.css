@@ -535,12 +535,49 @@ form {
 
 /*chart colors:*/
 
-/*.ct-series-c .ct-line {*/
- /* dortal:
-    stroke: #f4c63d
-    */
-/*}*/
+.circle-Dolev {
+  border: 4px solid white;
+}
 
+.circle-Dor {
+  border: 4px solid #f05c4f;
+}
+
+.circle-Dortal {
+  border: 4px solid #f4c63c;
+}
+
+.circle-Neshek {
+  border: 4px solid white;
+}
+
+.circle-Lior {
+  border: 4px solid #453d3f;
+}
+
+.circle-Michali {
+  border: 4px solid white;
+}
+
+.circle-Nadav {
+  border: 4px solid #0544d3;
+}
+
+.circle-Noram {
+  border: 4px solid white;
+}
+
+.circle-Sagi {
+  border: 4px solid white;
+}
+
+.circle-Yohai {
+  border: 4px solid white;
+}
+
+.circle-Yoni {
+  border: 4px solid white;
+}
 
 
 
