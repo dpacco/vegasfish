@@ -13,7 +13,10 @@ h5 {
     margin-top: 8px !important;
     margin-bottom: 8px !important;
     font-weight: 400;
+    display: flex;
+    justify-content: space-between;
     color: #505050;
+    /* vertical-align: middle; */
 }
 
 h6 {
@@ -65,8 +68,22 @@ a {
   justify-content: space-between;
 }
 
+.carusel {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
 .table-wrapper {
 	margin: 16px 0;
+}
+
+.negative-report {
+  /* background-color: red; */
+  color: rgb(255, 0, 67);
+}
+
+.players-reports .table-wrapper {
+  margin: 16px;
 }
 
 .bal-cell {
@@ -78,6 +95,11 @@ a {
     width: 40px;
     border-radius: 24px;
     margin-right: 16px;
+}
+
+.table-title span {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .app-wrap.full-page {

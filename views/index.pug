@@ -7,7 +7,7 @@ block content
 				.user-img-wrapper
 					img.user-img(src = selectedUser.image)
 					h5 #{selectedUser.name}
-				h5.user-balance #{selectedUser.balance}$
+				h5.user-balance $#{selectedUser.balance}
 				//- .team-balance #{teamBalance}$
 
 		div.mdl-user-card.holder
@@ -20,13 +20,6 @@ block content
 					input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
 					label#report-label.mdl-textfield__label(for='report_field') How much?
 
-					//radio
-				//- label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash1')
-				//- 	input#flash1.mdl-radio__button(checked='', name='flash', type='radio', value='on')
-				//- 	span.mdl-radio__label  
-				//- label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='flash2')
-				//- 	input#flash2.mdl-radio__button(name='flash', type='radio', value='off')
-				//- 	span.mdl-radio__label 
 			div.btns-container
 				button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
 					| Dry ☀️
@@ -49,22 +42,9 @@ block content
 			.mdl-snackbar__text
 			button.mdl-snackbar__action(type='button')
 
-		//- // last table
-		//- h5.table-title Last reports 
-		//- div.table-wrapper
-		//- 	table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#lastTable
-		//- 		tbody
-		//- 		each report, index in teamReports
-		//- 			if index < 3
-		//- 				tr
-		//- 					td.mdl-data-table__cell--non-numeric
-		//- 						img.table-avatar(src = report.img)
-		//- 						| #{report.name}
-		//- 					td #{report.time}
-		//- 					td.bal-cell #{report.val}
 
 		// last table #2
-		.section
+		.section.carusel
 			//- h5.table-title Last reports
 			.last-card-wrapper.full-width
 				each report, index in teamReports
@@ -82,26 +62,20 @@ block content
 								| 🐟
 							.mdl-card__supporting-text.report-time #{report.time}
 							//- img.table-avatar(src = report.img)
-						
-						
-						
-
+									
 		// score table
 		.section
-			h5.table-title Players balance (#{teamBalance}$)
+			h5.table-title Players balance 
+				span #{teamBalance}$
 			div.table-wrapper
 				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
-					//- thead
-					//- 	tr
-					//- 		th.mdl-data-table__cell--non-numeric Teams balance: #{teamBalance}
-					//- 		th.mdl-data-table__header--sorted-ascending#balance-col Balance
 					tbody
-					each user in users
-						tr
+					each user, key in users
+						tr(class=user.balance > -1 ? "" : "negative-report")
 							td.mdl-data-table__cell--non-numeric 
 								img.table-avatar(src = user.image)
 								| #{user.name}
-							td.bal-cell #{user.balance}
+							td.bal-cell #{user.balance}$
 							td
 								if user.balance > 200
 									| 🦈
@@ -109,23 +83,27 @@ block content
 									| 🐑
 								else
 									| 🐟
-
-		// table personal reports
-		.section
-			h5.table-title Personal reports
-			div.table-wrapper
-				table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#personal-rec
-					thead
-						tr
-							th.mdl-data-table__cell--non-numeric Report
-							th.mdl-data-table__cell--non-numeric Time
-							th.mdl-data-table__header--sorted-ascending#balance-col Balance
-					tbody
-					each report, index in selectedUser.reports
-						tr
-							td.mdl-data-table__cell--non-numeric #{index +1}
-							td.bal-cell.personal-report-time #{report.timestamp}
-							td.bal-cell #{report.report}
+		// personal report
+		.section.last-card-wrapper.carusel.players-reports
+			each user, key in users
+				div.table-wrapper
+					h5.table-title
+						span
+							img.table-avatar(src = users[key].image)
+							| #{users[key].name} 
+						span #{users[key].balance}$
+					table#personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+						thead
+							tr
+								th.mdl-data-table__cell--non-numeric Session
+								th.mdl-data-table__cell--non-numeric Time
+								th.mdl-data-table__header#balance-col 💸
+						tbody
+						each report, index in users[key].reports
+							tr(class=report.report > 0 ? "" : "negative-report")
+								td.mdl-data-table__cell--non-numeric #{index +1}
+								td.bal-cell.personal-report-time #{report.timestamp}
+								td.bal-cell #{report.report}
 
 		.logout-wrapper
 			span#logout-p Not #{selectedUser.name}? 
