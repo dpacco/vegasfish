@@ -105,6 +105,11 @@ a {
     margin-right: 16px;
 }
 
+.table-title {
+  display: flex;
+  justify-content: space-between;
+}
+
 .table-title span {
   margin-top: auto;
   margin-bottom: auto;

@@ -176,48 +176,42 @@ $( document ).ready(function() {
 
 	//charts
 
-	function fetchReport() {
+	var fetchReport = function() {
 		names = []
 		reports = []
 
 		$('.personal-report-table').each(function(index, el) {
-			var name = $('.personal-report-table > .personal-reports-avatar').text();
+			var name = $(this).find('.personal-reports-avatar-container').text();
 			names.push(name)
 			var allReports = []
-			$('.personal-report-table > .personal-report').each(function(index, el) {
-				var report = $(this).text()
+			$(this).find('.personal-report').each(function(index, el) {
+				var report =  parseInt($(this).text())
 				allReports.push(report)
 			});
 			reports.push(allReports)
 		});
-		console.log(names +':' + reports)
+
+		setTimeout(function(){
+			new Chartist.Line('.ct-chart', {
+			  // labels: names,
+			  className: 'test',
+			  series: reports
+			}, {
+			  fullWidth: true,
+			  chartPadding: {
+			    right: 40
+			  }
+			});
+		}, 2000)
+		console.log('chart loaded')
 	}
 
-	var data = {
-	  // A labels array that can contain any sort of values
-	  labels: [],
-	  // Our series array that contains series objects or in this case series data arrays
-	  series: [
-	    [5, 2, 4, 2, 0,4,3,2,3,4,5,6,7],
-	    [3,1,3,4],
-	    [1,2],
-	    [2,4,3],
-	    [2,1,2]
-	  ]
-	};
-
-	//- code for summarizing the reports
-	let array = [1,-1,2,2,9];
-	array = array.map((elem, index) => array.slice(0,index + 1).reduce((a, b) => a + b));
-	console.log(array);
-
-	// Create a new line chart object where as first parameter we pass in a selector
-	// that is resolving to our chart container element. The Second parameter
-	// is the actual data object.
-
-	fetchReport()
-	new Chartist.Line('.ct-chart', data);
+	$('.mdl-tabs__tab').click(function(){
+		fetchReport();
+	});
+	
 	//- script end
+
 
 
 
@@ -264,4 +258,7 @@ $(document).ready(function(){
             $('.dry-wet').attr('disabled',true);
     })
 });
+
+
+
 

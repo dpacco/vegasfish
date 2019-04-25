@@ -92,11 +92,11 @@ block content
 
 			.mdl-tabs__panel#personal-reports-tab
 				// personal report
-				//- .ct-chart.ct-perfect-fourth
+				.ct-chart.ct-perfect-fourth
 				.section.last-card-wrapper.carusel.players-reports
 					each user, key in users
 						div.table-wrapper.personal-report-table
-							h5.table-title
+							h6.table-title
 								span.personal-reports-avatar-container
 									img.personal-reports-avatar.table-avatar(src = users[key].image)
 									|#{users[key].name} 
@@ -105,13 +105,13 @@ block content
 								thead
 									tr
 										th.mdl-data-table__cell--non-numeric Session
-										th.mdl-data-table__cell--non-numeric Time
+										//- th.mdl-data-table__cell--non-numeric Time
 										th.mdl-data-table__header#balance-col 💸
 								tbody
 								each report, index in users[key].reports
 									tr(class=report.report > 0 ? "" : "negative-report")
 										td.mdl-data-table__cell--non-numeric #{index +1}
-										td.bal-cell.personal-report-time #{report.timestamp}
+										//- td.bal-cell.personal-report-time #{report.timestamp}
 										td.bal-cell.personal-report #{report.report}
 
 		.logout-wrapper
