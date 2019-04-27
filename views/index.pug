@@ -1,36 +1,34 @@
 extends layout
 
 block content
-	.app-wrap
-		div.mdl-user-card.mdl-shadow--2dp
-			.user-content
+	.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+		header.mdl-layout__header
+			.mdl-layout__header-row.header-content
+				// Title
+				span.mdl-layout-title #{selectedUser.name}
 				.user-img-wrapper
 					img.user-img(src = selectedUser.image)
-					h5 #{selectedUser.name}
-				h5.user-balance $#{selectedUser.balance}
-				//- .team-balance #{teamBalance}$
+			// Tabs
+			.mdl-layout__tab-bar.mdl-js-ripple-effect
+				a.mdl-layout__tab.is-active(href='#home') Home
+				a.mdl-layout__tab(href='#personal-reports-tab') reports
+		.mdl-card.hidden-card
+		main.mdl-layout__content
+			section#home.mdl-layout__tab-panel.is-active
+				.page-content
+					// Your content goes here
 
-		//- div.mdl-user-card.holder
+					div.mdl-card.mdl-shadow--2dp.full-width.input-card
+						form#report-form
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
+								label#report-label.mdl-textfield__label(for='report_field') How much?
 
-		//tabs
-		.mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
-			.mdl-tabs__tab-bar.carusel
-				a.mdl-tabs__tab.is-active(href='#home') Home
-				a.mdl-tabs__tab(href='#personal-reports-tab') Personal reports
-
-			.mdl-tabs__panel.is-active#home
-				// form
-				div.mdl-card.mdl-shadow--2dp.full-width.input-card
-					form#report-form
-						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-							input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
-							label#report-label.mdl-textfield__label(for='report_field') How much?
-
-					div.btns-container
-						button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
-							| Dry ☀️
-						button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount(wet)')
-							| Wet 🌧
+						div.btns-container
+							button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
+								| Dry ☀️
+							button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount(wet)')
+								| Wet 🌧
 
 				//Popup
 				div.pop-up
@@ -90,33 +88,86 @@ block content
 										else
 											| 🐟
 
-			.mdl-tabs__panel#personal-reports-tab
-				// personal report
+			section#personal-reports-tab.mdl-layout__tab-panel
+				.page-content
+					// Your content goes here
+					.ct-chart.ct-perfect-fourth
 
-				//Graph
-				.ct-chart.ct-perfect-fourth
+					.section.last-card-wrapper.carusel.players-reports
+						each user, key in users
+							div.table-wrapper.personal-report-table
+								h6.table-title
+									span.personal-reports-avatar-container
+										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
+										|#{users[key].name} 
+									span.personal-reports-report #{users[key].balance}$
+								table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+									thead
+										tr
+											th.mdl-data-table__cell--non-numeric Session
+											//- th.mdl-data-table__cell--non-numeric Time
+											th.mdl-data-table__header#balance-col 💸
+									tbody
+									each report, index in users[key].reports
+										tr(class=report.report > 0 ? "" : "negative-report")
+											td.mdl-data-table__cell--non-numeric #{index +1}
+											//- td.bal-cell.personal-report-time #{report.timestamp}
+											td.bal-cell.personal-report #{report.report}
+			section#scroll-tab-3.mdl-layout__tab-panel
+				.page-content
+					// Your content goes here
+			section#scroll-tab-4.mdl-layout__tab-panel
+				.page-content
+					// Your content goes here
+			section#scroll-tab-5.mdl-layout__tab-panel
+				.page-content
+					// Your content goes here
+			section#scroll-tab-6.mdl-layout__tab-panel
+				.page-content
+					// Your content goes here
 
-				.section.last-card-wrapper.carusel.players-reports
-					each user, key in users
-						div.table-wrapper.personal-report-table
-							h6.table-title
-								span.personal-reports-avatar-container
-									img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
-									|#{users[key].name} 
-								span.personal-reports-report #{users[key].balance}$
-							table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
-								thead
-									tr
-										th.mdl-data-table__cell--non-numeric Session
-										//- th.mdl-data-table__cell--non-numeric Time
-										th.mdl-data-table__header#balance-col 💸
-								tbody
-								each report, index in users[key].reports
-									tr(class=report.report > 0 ? "" : "negative-report")
-										td.mdl-data-table__cell--non-numeric #{index +1}
-										//- td.bal-cell.personal-report-time #{report.timestamp}
-										td.bal-cell.personal-report #{report.report}
+
+
+
+
+
+
+
 
 		.logout-wrapper
-			span#logout-p Not #{selectedUser.name}? 
-			span#logout switch user
+					span#logout-p Not #{selectedUser.name}? 
+					span#logout switch user
+
+
+
+
+
+
+
+
+
+	//- .app-wrap
+	//- 	div.mdl-user-card
+	//- 		.user-content
+	//- 			.user-img-wrapper
+	//- 				img.user-img(src = selectedUser.image)
+	//- 				h5 #{selectedUser.name}
+	//- 			h5.user-balance $#{selectedUser.balance}
+
+	//- 	.mdl-card.hidden-card
+
+	//- 	.mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+	//- 		.mdl-tabs__tab-bar.carusel.fixed.mdl-shadow--2dp
+	//- 			a.mdl-tabs__tab.is-active(href='#home') Home
+	//- 			a.mdl-tabs__tab(href='#personal-reports-tab') Personal reports
+	//- 		.mdl-card.hidden-card
+	//- 		.mdl-tabs__panel.is-active#home
+	//- 			// form
+				
+	//- 		.mdl-tabs__panel#personal-reports-tab
+	//- 			// personal report
+
+	//- 			//Graph
+				
+
+		

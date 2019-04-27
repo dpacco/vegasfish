@@ -206,7 +206,7 @@ $( document ).ready(function() {
 		console.log('chart loaded')
 	}
 
-	$('.mdl-tabs__tab').click(function(){
+	$('.mdl-layout__tab').click(function(){
 		fetchReport();
 	});
 	

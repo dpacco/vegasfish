@@ -28,8 +28,50 @@ a {
   color: #00B7FF;
 }
 
+.mdl-layout__content {
+  margin: 16px;
+  overflow: visible;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  /* padding: 16px; */
+}
+
+.header-content {
+  display: flex;
+  /* padding: 16px 16px 0 72px; */
+  justify-content: space-between;
+  background-color: #4960e0;
+}
+
+.tabs {
+  background-color: #5064de;
+  /* color: white !important; */
+}
+
+.hidden-card {
+  visibility: hidden;
+  height: 104px;
+  margin-top: 104px !important;
+  padding: 0 !important;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 420;
+  width: 100%;
+  background-color: #f7f6f6;
+}
+
+.mdl-layout__header {
+  position: fixed;
+  z-index: 420;
+}
+
 .mdl-tabs {
-  padding-top: 64px;
+  /* padding-top: 64px; */
 }
 
 .mdl-data-table {
@@ -208,7 +250,7 @@ form {
 	min-height: 0px !important;
 	padding: 16px;
 	margin: 16px 0;
-	/* width: 100% !important; */
+	width: 100% !important;
 	/* overflow: visible; */
 	margin: 0;
 	border-radius: 16px;
@@ -222,7 +264,7 @@ form {
 }
 
 .mdl-user-card {
-	height: 80px;
+	/* height: 80px; */
 	background-color: rgb(63,81,181);
 	/* color: white; */
 	position: fixed;
@@ -236,13 +278,13 @@ form {
 
 .user-img {
     border-radius: 100px;
-    height: 50px;
-    margin-bottom: 3px;
-    margin-left: 3px;
-    margin-right: 12px;
-    margin-top: 3px;
+    height: 40px;
+    /* margin-bottom: 3px; */
+    /* margin-left: 3px; */
+    /* margin-right: 12px; */
+    /* margin-top: 3px; */
     overflow: hidden;
-    width: 50px;
+    width: 40px;
 }
 
 .user-img-wrapper {
@@ -536,7 +578,7 @@ form {
 /*chart colors:*/
 
 .circle-Dolev {
-  border: 4px solid white;
+  border: 4px solid #d70105;
 }
 
 .circle-Dor {
@@ -548,7 +590,7 @@ form {
 }
 
 .circle-Neshek {
-  border: 4px solid white;
+  border: 4px solid #d17905;
 }
 
 .circle-Lior {
@@ -556,7 +598,7 @@ form {
 }
 
 .circle-Michali {
-  border: 4px solid white;
+  border: 4px solid #5a922a;
 }
 
 .circle-Nadav {
@@ -564,19 +606,19 @@ form {
 }
 
 .circle-Noram {
-  border: 4px solid white;
+  border: 4px solid #6b0291;
 }
 
 .circle-Sagi {
-  border: 4px solid white;
+  border: 4px solid #f05c4f;
 }
 
 .circle-Yohai {
-  border: 4px solid white;
+  border: 4px solid #dda458;
 }
 
 .circle-Yoni {
-  border: 4px solid white;
+  border: 4px solid #eace7d;
 }
 
 
