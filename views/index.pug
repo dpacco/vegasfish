@@ -109,7 +109,7 @@ block content
 					.section.last-card-wrapper.carusel.players-reports
 						// personal table
 						each user, key in users
-							div.table-wrapper.personal-report-table
+							div.table-wrapper.personal-report-table(class= users[key].name === selectedUser.name ? "graph-active" : "")
 								.table-title
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
