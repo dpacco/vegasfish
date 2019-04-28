@@ -179,8 +179,9 @@ $( document ).ready(function() {
 	var fetchReport = function() {
 		names = []
 		reports = []
+		var swtichStatus = $('input[name=options]:checked').val()
 
-		$('.personal-report-table').each(function(index, el) {
+		$('.graph-active').each(function(index, el) {
 			var name = $(this).find('.personal-reports-avatar-container').text();
 			names.push(name)
 			var allReports = []
@@ -188,19 +189,26 @@ $( document ).ready(function() {
 				var report =  parseInt($(this).text())
 				allReports.push(report)
 			});
+			if(swtichStatus == 1) {
+				var myarray = allReports;
+				var new_array = [];
+				myarray.reduce(function(a,b,i) { return new_array[i] = a+b; },0);
+				allReports = new_array // [5, 15, 18, 20]
+			}
 			reports.push(allReports)
 		});
 
+
 		// setTimeout(function(){
-			new Chartist.Line('.ct-chart', {
-			  // labels: names,
-			  className: 'test',
-			  series: reports
-			}, {
-			  fullWidth: true,
-			  chartPadding: {
-			    right: 40
-			  }
+		new Chartist.Line('.ct-chart', {
+		  // labels: names,
+		  className: 'test',
+		  series: reports
+		}, {
+		  fullWidth: true,
+		  chartPadding: {
+		    right: 40
+		  }
 			});
 		// }, 2000)
 		console.log('chart loaded')
@@ -209,6 +217,16 @@ $( document ).ready(function() {
 	$('.mdl-layout__tab').click(function(){
 		fetchReport();
 	});
+
+	$('.mdl-radio').click(function(){
+		fetchReport();
+	});
+
+	$('.personal-report-table').click(function(event) {
+		$(this).toggleClass('graph-active')
+		fetchReport();
+	});
+
 	
 	//- script end
 

@@ -7,11 +7,12 @@ block content
 				// Title
 				span.mdl-layout-title #{selectedUser.name}
 				.user-img-wrapper
+					span.mdl-layout-title #{selectedUser.balance}$
 					img.user-img(src = selectedUser.image)
 			// Tabs
 			.mdl-layout__tab-bar.mdl-js-ripple-effect
 				a.mdl-layout__tab.is-active(href='#home') Home
-				a.mdl-layout__tab(href='#personal-reports-tab') reports
+				a.mdl-layout__tab(href='#personal-reports-tab') team reports
 		.mdl-card.hidden-card
 		main.mdl-layout__content
 			section#home.mdl-layout__tab-panel.is-active
@@ -93,10 +94,20 @@ block content
 					// Your content goes here
 					.ct-chart.ct-perfect-fourth
 
+					.accumulate-radios
+						label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='accumulate')
+							input#accumulate.mdl-radio__button(type='radio', name='options', value='1')
+							span.mdl-radio__label Accumulated
+						label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='non-accumulate')
+							input#non-accumulate.mdl-radio__button(type='radio', name='options', value='2', checked='')
+							span.mdl-radio__label Per session
+
+
 					.section.last-card-wrapper.carusel.players-reports
+						// personal table
 						each user, key in users
-							div.table-wrapper.personal-report-table
-								h6.table-title
+							div.table-wrapper.personal-report-table.graph-active
+								.table-title
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
 										|#{users[key].name} 
@@ -113,27 +124,26 @@ block content
 											td.mdl-data-table__cell--non-numeric #{index +1}
 											//- td.bal-cell.personal-report-time #{report.timestamp}
 											td.bal-cell.personal-report #{report.report}
-			section#scroll-tab-3.mdl-layout__tab-panel
-				.page-content
-					// Your content goes here
-			section#scroll-tab-4.mdl-layout__tab-panel
-				.page-content
-					// Your content goes here
-			section#scroll-tab-5.mdl-layout__tab-panel
-				.page-content
-					// Your content goes here
-			section#scroll-tab-6.mdl-layout__tab-panel
-				.page-content
-					// Your content goes here
-
-
-
-
-
-
-
-
-
+						// team table
+						div.table-wrapper.personal-report-table
+							.table-title
+								span.personal-reports-avatar-container
+									img.personal-reports-avatar(class="circle-" + 'Team').table-avatar(src =)
+									|Team 
+								span.personal-reports-report
+							table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+								thead
+									tr
+										th.mdl-data-table__cell--non-numeric Session
+										//- th.mdl-data-table__cell--non-numeric Time
+										th.mdl-data-table__header#balance-col 💸
+								tbody
+								each user, key in users
+									each report, index in users[key].reports
+										tr(class=report.report > 0 ? "" : "negative-report")
+											td.mdl-data-table__cell--non-numeric #{index +1}
+											//- td.bal-cell.personal-report-time #{report.timestamp}
+											td.bal-cell.personal-report #{report.report}
 		.logout-wrapper
 					span#logout-p Not #{selectedUser.name}? 
 					span#logout switch user
