@@ -96,17 +96,20 @@ block content
 
 					.accumulate-radios
 						label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='accumulate')
-							input#accumulate.mdl-radio__button(type='radio', name='options', value='1')
+							input#accumulate.mdl-radio__button(type='radio', name='options', value='1', checked='')
 							span.mdl-radio__label Accumulated
 						label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for='non-accumulate')
-							input#non-accumulate.mdl-radio__button(type='radio', name='options', value='2', checked='')
+							input#non-accumulate.mdl-radio__button(type='radio', name='options', value='2')
 							span.mdl-radio__label Per session
+					div.selection-btns
+						button.mdl-button.mdl-js-button.mdl-button--raised#select-all Select all
+						button.mdl-button.mdl-js-button.mdl-button--raised#deselect-all Deselect all
 
 
 					.section.last-card-wrapper.carusel.players-reports
 						// personal table
 						each user, key in users
-							div.table-wrapper.personal-report-table.graph-active
+							div.table-wrapper.personal-report-table
 								.table-title
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)

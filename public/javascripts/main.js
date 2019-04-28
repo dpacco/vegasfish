@@ -227,6 +227,22 @@ $( document ).ready(function() {
 		fetchReport();
 	});
 
+	$('#select-all').click(function(event) {
+		$('.personal-report-table').each(function(){
+			$(this).removeClass('graph-active');
+			$(this).toggleClass('graph-active');
+		});
+		fetchReport();	
+	});
+
+	$('#deselect-all').click(function(event) {
+		$('.personal-report-table').each(function(){
+			$(this).addClass('graph-active');
+			$(this).toggleClass('graph-active');
+		});
+		fetchReport();	
+	});
+
 	
 	//- script end
 
@@ -276,6 +292,8 @@ $(document).ready(function(){
             $('.dry-wet').attr('disabled',true);
     })
 });
+
+
 
 
 
