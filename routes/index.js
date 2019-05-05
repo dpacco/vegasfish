@@ -29,10 +29,14 @@ var getData = function(page, callback){
 	      const data = JSON.parse(fileContent.Body)
 	      dataUsers = data
 	      mainImg = dataUsers['main-image']
-	      callback(page)
+	      if(page != ''){
+	      	callback(page)
+	  	  }
 		}
 	});
 }
+
+getData('');
 
 /* Get user details  */
 // var dataUsers
