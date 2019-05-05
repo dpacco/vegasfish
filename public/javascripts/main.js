@@ -230,7 +230,9 @@ $( document ).ready(function() {
 	$('#select-all').click(function(event) {
 		$('.personal-report-table').each(function(){
 			$(this).removeClass('graph-active');
-			$(this).toggleClass('graph-active');
+			if(!$(this).is('.team-table')){
+				$(this).toggleClass('graph-active');
+			}
 		});
 		fetchReport();	
 	});
