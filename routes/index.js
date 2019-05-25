@@ -25,7 +25,6 @@ var getData = function(page, callback){
 	s3.getObject({Bucket: 'pappdata', Key: 'data_papp.json'}, function(err, fileContent) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else {
-		  console.log(JSON.parse(fileContent.Body));           // successful response
 	      const data = JSON.parse(fileContent.Body)
 	      dataUsers = data
 	      mainImg = dataUsers['main-image']
@@ -37,29 +36,6 @@ var getData = function(page, callback){
 }
 
 getData('');
-
-/* Get user details  */
-// var dataUsers
-// var mainImg 
-
-// var getData = function(page, callback){
-// 	fs.readFile('./data_papp.json', 'utf8', (err, fileContents) => {
-// 	  if (err) {
-// 	    console.error(err)
-// 	    return
-// 	  }
-// 	  try {
-// 	    const data = JSON.parse(fileContents)
-// 	    dataUsers = data
-// 	    mainImg = dataUsers['main-image']
-// 	    callback(page)
-// 	  } catch(err) {
-// 	    console.error(err)
-// 	  }
-// 	})
-// }
-
-/* GET home page. */
 
 router.get('/', function(req, res, next) {
 
@@ -79,6 +55,8 @@ router.get('/', function(req, res, next) {
 			teamBalance += val
 		};
 	};
+
+	getTeamBal();
 
 // Last reports
 	function lastReports() {

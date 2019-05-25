@@ -198,8 +198,6 @@ $( document ).ready(function() {
 			reports.push(allReports)
 		});
 
-
-		// setTimeout(function(){
 		new Chartist.Line('.ct-chart', {
 		  // labels: names,
 		  className: 'test',
@@ -207,10 +205,10 @@ $( document ).ready(function() {
 		}, {
 		  fullWidth: true,
 		  chartPadding: {
-		    right: 40
+		    right: 32
 		  }
 			});
-		// }, 2000)
+
 		console.log('chart loaded')
 	}
 

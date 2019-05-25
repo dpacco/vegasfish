@@ -78,6 +78,7 @@ a {
 	/* border-radius: 16px; */
 	width: 100%;
 	border-color: transparent;
+  font-size: 16px !important;
 	/* border: none; */
 }
 
@@ -138,6 +139,13 @@ a {
 
 .bal-cell {
 	font-weight: 700;
+	padding-right: 4px !important;
+}
+
+.bal-icon-cell{
+  width: 2px !important;
+  padding: 0 !important;
+  text-align: left !important;
 }
 
 .bal-icon {
@@ -346,6 +354,10 @@ form {
 	position: fixed;
 	top: 16px;
 	right: 16px;
+}
+
+#select-all {
+  margin-right: 32px;
 }
 
 .neon p.small {
@@ -591,7 +603,7 @@ form {
 
 .selection-btns {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
 }
 
 .graph-active .personal-reports-avatar{
