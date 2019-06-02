@@ -172,7 +172,7 @@ a {
 
 .app-wrap.full-page {
 	 height: 100vh;
-	 background: #1f1f1f;
+	 background: #ffffff;
 	 margin: 0;
 	 padding: 16px;
 }
@@ -362,12 +362,14 @@ form {
 
 .neon p.small {
 	font-size: 42px;
+	font-weight: 400;
 }
 .neon p {
   color: #ff4081;
-  font-family: Pacifico;
+  font-family: roboto;
+  font-weight: bold;
   font-size: 97px;
-  line-height: 88px;
+  line-height: 70px;
 }
 
 .neon.off p {
@@ -377,7 +379,7 @@ form {
 .neon.on p {
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
   -moz-animation: neon3 1.5s ease-in-out infinite alternate;
-  animation: neon3 1.5s ease-in-out infinite alternate;
+  /* animation: neon3 1.5s ease-in-out infinite alternate; */
 }
 
 .fish-title {
@@ -550,10 +552,10 @@ form {
 
 @keyframes neon3 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4081, 0 0 70px #ff4081, 0 0 80px #ff4081, 0 0 100px #ff4081, 0 0 150px #ff4081;
+    /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4081, 0 0 70px #ff4081, 0 0 80px #ff4081, 0 0 100px #ff4081, 0 0 150px #ff4081; */
   }
   to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff4081, 0 0 35px #ff4081, 0 0 40px #ff4081, 0 0 50px #ff4081, 0 0 75px #ff4081;
+    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff4081, 0 0 35px #ff4081, 0 0 40px #ff4081, 0 0 50px #ff4081, 0 0 75px #ff4081; */
   }
 }
 
