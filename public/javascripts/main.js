@@ -39,8 +39,18 @@ $( document ).ready(function() {
 	});
 
 	$("#btn-cancel").click(function(){
-		showHide();
+		showHide('#confirm-pop');
 	});
+
+	$("#float-report").click(function(){
+		showHide('#report-pop');
+	});
+
+	$("#main-report").click(function(){
+		showHide('#report-pop');
+	});
+
+
 
     // LOGIN: select user 
 
@@ -273,8 +283,8 @@ var inputAmount = function(weather){
 	$('#pop-up-amount').html(val +'$');
 }
 
-var showHide = function(){
-	$('.pop-up').toggle()
+var showHide = function(id){
+	$(id).toggle()
 	$('#btn-send').removeClass('mdl-button--accent');
 	$('#btn-cancel').removeClass('mdl-button--accent');
 	$('#btn-send').removeClass('mdl-button--colored');

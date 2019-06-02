@@ -5,10 +5,13 @@ block content
 		header.mdl-layout__header
 			.mdl-layout__header-row.header-content
 				// Title
-				span.mdl-layout-title #{selectedUser.name}
 				.user-img-wrapper
-					span.mdl-layout-title #{selectedUser.balance}$
 					img.user-img(src = selectedUser.image)
+					span.mdl-layout-title #{selectedUser.name}
+					span.mdl-layout-title #{selectedUser.balance}$
+				
+				button#main-report.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+					| 💸 Report
 			// Tabs
 			.mdl-layout__tab-bar.mdl-js-ripple-effect
 				a.mdl-layout__tab.is-active(href='#home') Home
@@ -18,21 +21,23 @@ block content
 			section#home.mdl-layout__tab-panel.is-active
 				.page-content
 					// Your content goes here
-
-					div.mdl-card.mdl-shadow--2dp.full-width.input-card
+				div.pop-up#report-pop
+					div.pop-up-content.mdl-card.mdl-shadow--2dp
 						form#report-form
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 								input#report-field.mdl-textfield__input(type='number', pattern="[0-9]*")
 								label#report-label.mdl-textfield__label(for='report_field') How much?
 
 						div.btns-container
-							button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide(); inputAmount(dry)')
+							button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide("#confirm-pop"); inputAmount(dry)')
 								| Dry ☀️
-							button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide(); inputAmount(wet)')
+							button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide("#confirm-pop"); inputAmount(wet)')
 								| Wet 🌧
+							button#close-report.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--accent(onclick = '$("#report-pop").toggle()')
+								| Cancel
 
 				//Popup
-				div.pop-up
+				div.pop-up#confirm-pop
 					div.pop-up-content.mdl-card.mdl-shadow--2dp.full-width
 						.pop-up-icon
 						h5 You're about to report 
@@ -92,6 +97,10 @@ block content
 										else
 											| 🐟
 
+				.floating-btn#float-report
+					button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+						i.material-icons 💸
+
 			section#personal-reports-tab.mdl-layout__tab-panel
 				.page-content
 					// Your content goes here
@@ -150,6 +159,7 @@ block content
 											td.mdl-data-table__cell--non-numeric #{index +1}
 											//- td.bal-cell.personal-report-time #{report.timestamp}
 											td.bal-cell.personal-report #{report.report}
+
 		.logout-wrapper
 					span#logout-p Not #{selectedUser.name}? 
 					span#logout switch user
