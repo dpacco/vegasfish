@@ -1,5 +1,5 @@
 body {
-	font: 14px "SF", Helvetica, Arial, sans-serif;
+	font: 14px "SF","roboto", Helvetica, Arial, sans-serif;
 	/* margin: 16px 0; */
 	background-color: #f7f6f6;
 }
@@ -27,6 +27,29 @@ h6 {
 a {
   color: #00B7FF;
 }
+
+.landing-header {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+}
+
+.landing-header h1 {
+  font-size: 72px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.landing-bg {
+  background-image: linear-gradient(135deg, #9C27B0 0%,#ff4181 100%);
+}
+
+.landing-header h6 {
+  font-size: 36px;
+  font-weight: 900;
+}
+
 
 .mdl-layout__content {
   margin: 16px;
@@ -178,9 +201,9 @@ a {
 
 .app-wrap.full-page {
 	 height: 100vh;
-	 background: #ffffff;
+	 background-color: #ffffff;
 	 margin: 0;
-	 padding: 16px;
+	 /* padding: 16px; */
 }
 
 .mdl-user-card.holder {
