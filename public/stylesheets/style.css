@@ -168,7 +168,7 @@ a {
 
 .bal-cell {
 	font-weight: 700;
-	padding-right: 4px !important;
+	padding-right: 8px !important;
 }
 
 .bal-icon-cell{
@@ -441,6 +441,15 @@ form {
   border-radius: 16px 16px 0 0;
   background-color: #ffffff;
   z-index: 999999999999;
+}
+
+.pop-btns {
+  /* display: flex; */
+}
+
+.dry-wet {
+  margin-right: 16px;
+  width: 100px;
 }
 
 .pop-up-content.close {

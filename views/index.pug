@@ -8,7 +8,7 @@ block content
 				.user-img-wrapper
 					img.user-img(src = selectedUser.image)
 					span.mdl-layout-title #{selectedUser.name}
-					span.mdl-layout-title #{selectedUser.balance}$
+					span.mdl-layout-title $#{selectedUser.balance}
 				
 				button#main-report.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
 					| 💸 Report
@@ -36,7 +36,7 @@ block content
 									.mdl-card--expand
 									img(src = report.img)
 									.report-val
-										h2.mdl-card__title-text #{report.val}$
+										h2.mdl-card__title-text $#{report.val}
 									if report.val > 200
 										| 🦈
 									else if report.val < 0
@@ -49,7 +49,7 @@ block content
 				// score table
 				.section
 					h5.table-title Players balance 
-						span #{teamBalance}$
+						span $#{teamBalance}
 					div.table-wrapper
 						table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
 							tbody
@@ -97,7 +97,7 @@ block content
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
 										|#{users[key].name} 
-									span.personal-reports-report #{users[key].balance}$
+									span.personal-reports-report $#{users[key].balance}
 								table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
 									thead
 										tr
@@ -138,10 +138,11 @@ block content
 								label#report-label.mdl-textfield__label(for='report_field') How much?
 
 						div.btns-container
-							button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide("#confirm-pop"); inputAmount(dry)')
-								| Dry ☀️
-							button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide("#confirm-pop"); inputAmount(wet)')
-								| Wet 🌧
+							div.pop-btns
+								button.dry-wet#dry.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(onclick = 'showHide("#confirm-pop"); inputAmount(dry)')
+									| Dry ☀️
+								button.dry-wet#wet.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(onclick = 'showHide("#confirm-pop"); inputAmount(wet)')
+									| Wet 🌧
 							button#close-report.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--accent(onclick = '$("#report-pop").toggle()')
 								| Cancel
 		div.pop-up#confirm-pop
