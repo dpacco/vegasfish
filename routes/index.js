@@ -115,7 +115,7 @@ router.get('/', function(req, res, next) {
 	  	console.log('Done pageRender')
 	};
 
-	if(selectedUser !== undefined){
+	if((selectedUser !== '' ) && (selectedUser !== undefined)){
 		page = 'index'
 		getData(page, pageRender)
 	}
