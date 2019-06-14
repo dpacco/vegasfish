@@ -44,12 +44,16 @@ block content
 									img(src = report.img)
 									.report-val
 										h2.mdl-card__title-text $#{report.val}
-									if report.val > 200
+									if report.val > 400
 										| 🦈
-									else if report.val < 0
+									else if report.val > 0
+										| 🦊
+									else if report.val < -400
 										| 🐑
-									else
+									else if report.val < 0
 										| 🐟
+									else
+										| 🌵
 									.mdl-card__supporting-text.report-time #{report.time}
 									//- img.table-avatar(src = report.img)
 											
@@ -68,11 +72,13 @@ block content
 									td.bal-cell #{user.balance}
 									td.bal-icon-cell $
 									td.bal-icon
-										if user.balance > 200
+										if user.balance > 400
 											| 🦈
-										else if user.balance < 0
+										else if user.balance > 0
+											| 🦊
+										else if user.balance < -400
 											| 🐑
-										else
+										else if user.balance < 0
 											| 🐟
 
 				//- .floating-btn#float-report
