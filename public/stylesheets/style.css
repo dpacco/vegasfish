@@ -86,6 +86,10 @@ a {
   padding: 0 !important;
 }
 
+.hide {
+  display: none;
+}
+
 .fixed {
   position: fixed;
   z-index: 420;
@@ -111,7 +115,7 @@ a {
 }
 
 .section {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 #report-field {

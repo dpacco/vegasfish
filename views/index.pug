@@ -6,12 +6,19 @@ block content
 			.mdl-layout__header-row.header-content
 				// Title
 				.user-img-wrapper
-					img.user-img(src = selectedUser.image)
+					img.user-img(src = selectedUser.image)#demo-menu-lower-left.mdl-button.mdl-js-button.mdl-button--icon
 					span.mdl-layout-title #{selectedUser.name}
 					span.mdl-layout-title $#{selectedUser.balance}
 				
 				button#main-report.btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
 					| 💸 Report
+
+				// Left aligned menu below button
+				
+				ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu.mdl-js-ripple-effect(for='demo-menu-lower-left')
+					li.mdl-menu__item.avatar-li.show-report-li Show real time reports
+					li.mdl-menu__item.avatar-li#logout Logout
+
 			// Tabs
 			.mdl-layout__tab-bar.mdl-js-ripple-effect
 				a.mdl-layout__tab.is-active(href='#home') Home
@@ -27,7 +34,7 @@ block content
 
 
 				// last table #2
-				.section.carusel
+				.section.carusel.last-reports
 					//- h5.table-title Last reports
 					.last-card-wrapper.full-width
 						each report, index in teamReports
@@ -164,7 +171,7 @@ block content
 
 		.logout-wrapper
 					span#logout-p Not #{selectedUser.name}? 
-					span#logout switch user
+					//- span#logout switch user
 
 
 

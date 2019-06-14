@@ -5,6 +5,18 @@ $(window).on('beforeunload', function(){
 
 $( document ).ready(function() {
 
+	// set and read cookies
+	function setCookie(key, value) {
+	    var expires = new Date();
+	    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+	    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+	}
+
+	function getCookie(key) {
+	    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+	    return keyValue ? keyValue[2] : null;
+	}
+
 	var user = document.cookie
 
 	if(localStorage.getItem("Status")) {
@@ -52,9 +64,10 @@ $( document ).ready(function() {
 
 
 
+
     // LOGIN: select user 
 
-	$(".mdl-menu__item").click(function(){
+	$(".login-li").click(function(){
 		var selectedUser = this.id
 		console.log('client sends: ' + selectedUser)
 		document.cookie = 'user=' + selectedUser;
@@ -92,13 +105,9 @@ $( document ).ready(function() {
 
 	// Logout
 	$('#logout').click(function(event) {
-		document.cookie = document.cookie + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-		location.reload();
+		setCookie('user','')
+		location.reload()
 	});
-
-
-
-	
 
 
 	// Sorting table
@@ -253,6 +262,38 @@ $( document ).ready(function() {
 		fetchReport();	
 	});
 
+
+	// toggle state
+	var showHideReports = function(){
+		var reportState = getCookie('report-state')
+
+		if(reportState == 'false'){
+			$('.last-reports').addClass('hide');
+		} else {
+			$('.last-reports').removeClass('hide')
+		}
+	};
+	
+	$(".show-report-li").click(function(event) {
+		var reportState = getCookie('report-state')
+		if (reportState == 'false'){
+			setCookie('report-state', true);
+			console.log('cookie set to true')
+			// location.reload()
+		}else{
+			setCookie('report-state', false)
+			console.log('cookie set to fasle')
+			// location.reload()
+		}
+		showHideReports();
+	});
+
+	showHideReports();
+
+	// showHideReports();
+
+	// setCookie('report-state', reportState)	
+
 	
 	//- script end
 
@@ -263,6 +304,8 @@ $( document ).ready(function() {
 	sortTable()
 
 });
+
+
 
 var inputAmount = function(weather){
 	var posNeg = '';
@@ -302,6 +345,7 @@ $(document).ready(function(){
             $('.dry-wet').attr('disabled',true);
     })
 });
+
 
 
 
