@@ -4,6 +4,14 @@ body {
 	background-color: #f7f6f6;
 }
 
+.mdl-layout__container {
+  position: relative !important;
+}
+
+.mdl-layout {
+  /* overflow-x: visible !important; */
+}
+
 h2 {
   font-weight: 700;
 }
@@ -81,7 +89,7 @@ a {
 
 .hidden-card {
   visibility: hidden;
-  height: 104px;
+  height: 0px;
   margin-top: 75px !important;
   padding: 0 !important;
 }
@@ -640,6 +648,7 @@ form {
   width: 100vw !important;
   margin-left: -16px;
   margin-right: -16px;
+  margin-top: 24px;
 }
 
 .accumulate-radios {
