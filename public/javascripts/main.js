@@ -247,6 +247,16 @@ $( document ).ready(function() {
 		fetchReport();
 	});
 
+	$('#select-team').click(function(event) {
+		$('.personal-report-table').each(function(){
+			$(this).removeClass('graph-active');
+			if($(this).is('.team-table')){
+				$(this).toggleClass('graph-active');
+			}
+		});
+		fetchReport();	
+	});
+
 	$('#select-all').click(function(event) {
 		$('.personal-report-table').each(function(){
 			$(this).removeClass('graph-active');

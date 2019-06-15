@@ -125,6 +125,10 @@ a {
 	/* border: none; */
 }
 
+.selection-btns button {
+  margin-right: 24px;
+}
+
 .section {
   margin-top: 24px;
 }
