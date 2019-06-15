@@ -240,7 +240,10 @@ $( document ).ready(function() {
 	});
 
 	$('.personal-report-table').click(function(event) {
-		$(this).toggleClass('graph-active')
+		$('.personal-report-table').each(function(index, el) {
+			$(this).removeClass('graph-active')
+		});
+		$(this).addClass('graph-active')
 		fetchReport();
 	});
 
@@ -255,10 +258,13 @@ $( document ).ready(function() {
 	});
 
 	$('#deselect-all').click(function(event) {
-		$('.personal-report-table').each(function(){
+		$('.personal-report-table').each(function(index, el){
 			$(this).addClass('graph-active');
 			$(this).toggleClass('graph-active');
 		});
+		var user = getCookie('user')
+		$('#' + user).toggleClass('graph-active')
+
 		fetchReport();	
 	});
 

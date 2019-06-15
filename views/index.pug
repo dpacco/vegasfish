@@ -44,7 +44,9 @@ block content
 									img(src = report.img)
 									.report-val
 										h2.mdl-card__title-text $#{report.val}
-									if report.val > 400
+									if report.val > 2000
+										| 🦄
+									else if report.val > 800
 										| 🦈
 									else if report.val > 0
 										| 🦊
@@ -72,7 +74,9 @@ block content
 									td.bal-cell #{user.balance}
 									td.bal-icon-cell $
 									td.bal-icon
-										if user.balance > 400
+										if user.balance > 2000
+											| 🦄
+										else if user.balance > 800
 											| 🦈
 										else if user.balance > 0
 											| 🦊
@@ -98,14 +102,14 @@ block content
 							input#non-accumulate.mdl-radio__button(type='radio', name='options', value='2')
 							span.mdl-radio__label Per session
 					div.selection-btns
-						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#select-all Select all
-						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#deselect-all Deselect all
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#select-all TEAM
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#deselect-all ME
 
 
 					.section.last-card-wrapper.carusel.players-reports
 						// personal table
 						each user, key in users
-							div.table-wrapper.personal-report-table(class= users[key].name === selectedUser.name ? "graph-active" : "")
+							div.table-wrapper.personal-report-table(id = key, class= users[key].name === selectedUser.name ? "graph-active" : "")
 								.table-title
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
