@@ -43,7 +43,7 @@ block content
 									.mdl-card--expand
 									img(src = report.img)
 									.report-val
-										h2.mdl-card__title-text $#{report.val}
+										h2.mdl-card__title-text(class=report.val > -1 ? "" : "negative-report") $#{report.val}
 									if report.val > 2000
 										| 🦄
 									else if report.val > 800
