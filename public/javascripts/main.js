@@ -60,6 +60,7 @@ $( document ).ready(function() {
 
 	$("#main-report").click(function(){
 		showHide('#report-pop');
+		$('#report-field').focus();
 	});
 
 
