@@ -127,6 +127,7 @@ a {
 
 .selection-btns button {
   margin-right: 24px;
+  min-width: 100px;
 }
 
 .section {
