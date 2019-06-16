@@ -115,7 +115,7 @@ block content
 									span.personal-reports-avatar-container
 										img.personal-reports-avatar(class="circle-" + users[key].name).table-avatar(src = users[key].image)
 										|#{users[key].name} 
-									span.personal-reports-report $#{users[key].balance}
+									span(class=users[key].balance > -1 ? "" : "negative-report").personal-reports-report $#{users[key].balance}
 								table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
 									thead
 										tr
