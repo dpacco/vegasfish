@@ -68,6 +68,7 @@ block content
 							tbody
 							each user, key in users
 								tr(class=user.balance > -1 ? "" : "negative-report")
+									td.bal-cell index
 									td.mdl-data-table__cell--non-numeric 
 										img.table-avatar(src = user.image)
 										| #{user.name}
