@@ -11,21 +11,8 @@
       "balance": 0,
       "image": "./images/dorp.jpg",
       "name": "Dor",
-      "reports": [
-      ]
+      "reports": []
     },
-    // "dort": {
-    //   "balance": 0,
-    //   "image": "./images/dort.jpg",
-    //   "name": "Dortal",
-    //   "reports": []
-    // },
-    // "eladh": {
-    //   "balance": 0,
-    //   "image": "./images/eladh.jpg",
-    //   "name": "Neshek",
-    //   "reports": []
-    // },
     "amith": {
       "balance": 0,
       "image": "./images/amith.jpg",
@@ -48,8 +35,7 @@
       "balance": 0,
       "image": "./images/michalc.jpg",
       "name": "Michali",
-      "reports": [
-      ]
+      "reports": []
     },
     "nadavg": {
       "balance": 0,
