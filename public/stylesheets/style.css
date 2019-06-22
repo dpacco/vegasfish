@@ -368,7 +368,7 @@ form {
 }
 
 .user-img {
-    /* border: 4px solid white; */
+    border: 1px solid #3f50b5; 
     margin-right: 16px;
     border-radius: 100px;
     height: 40px;
@@ -709,7 +709,7 @@ form {
 }
 
 .graph-active .personal-reports-avatar{
-  border: 4px solid #4960e0;
+  border: 2px solid #ff4181;
   box-sizing: border-box;
 }
 
