@@ -1,4 +1,5 @@
 
+
 $(window).on('beforeunload', function(){
   $(window).scrollTop(0);
 });
@@ -131,8 +132,8 @@ $( document ).ready(function() {
 	      shouldSwitch = false;
 	      /*Get the two elements you want to compare,
 	      one from current row and one from the next:*/
-	      x = rows[i].getElementsByTagName("td")[1];
-	      y = rows[i + 1].getElementsByTagName("td")[1];
+	      x = rows[i].getElementsByTagName("td")[2];
+	      y = rows[i + 1].getElementsByTagName("td")[2];
 	      //check if the two rows should switch place:
 	      var a = Number(x.innerHTML)
 	      var b = Number(y.innerHTML)
@@ -305,17 +306,43 @@ $( document ).ready(function() {
 		showHideReports();
 	});
 
-	showHideReports();
+	//add bottle icon to first and second
+	var bottle = function(){
+		$('.left-col').each(function(index){
+			if(index == 0 || index == 1 ){
+				$(this).append(' 💦')
+				console.log('true')
+			}
+			console.log(index)
 
-	// showHideReports();
-
-	// setCookie('report-state', reportState)	
-
+		})
+	}
+	//add numbers to the table
+	var numbering = function(){
+		$('.most-left-col').each(function(index){
+			if(index == 0){
+				$(this).prepend('🥇')
+			}
+			else if(index == 1){
+				$(this).prepend('🥈')
+			}
+			else if(index == 2){
+				$(this).prepend('🥉')
+			}
+			else {
+				$(this).prepend(index + 1)
+			}
+		});
+	};
+	setTimeout(function(){
+		bottle()
+		numbering()
+		console.log('timout')
+	}, 300);
 	
-	//- script end
 
 
-
+	showHideReports();
 
 	console.log( "ready!" );
 	sortTable()

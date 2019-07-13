@@ -70,7 +70,8 @@ block content
 							tbody
 							each user, key in users
 								tr(class=user.balance > -1 ? "" : "negative-report")
-									td.mdl-data-table__cell--non-numeric 
+									td.mdl-data-table__cell--non-numeric.most-left-col
+									td.mdl-data-table__cell--non-numeric.left-col 
 										img.table-avatar(src = user.image)
 										| #{user.name}
 									td.bal-cell #{user.balance}
