@@ -198,6 +198,12 @@ $( document ).ready(function() {
 			switching = true;
 		  }
 		}
+		var changeNumbers = function(){
+			$('.team-row').each(function(index){
+				$(this).text(index+1);
+			})
+		}
+		changeNumbers()
 	  }
 
 //dealing with time formating
