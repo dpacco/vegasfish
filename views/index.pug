@@ -139,7 +139,7 @@ block content
 									img.personal-reports-avatar(class="circle-" + 'Team').table-avatar(src ="./images/team.jpg")
 									|Team 
 								span.personal-reports-report
-							table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+							table.personal-rec.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#team-stats
 								thead
 									tr
 										th.mdl-data-table__cell--non-numeric Session
@@ -149,7 +149,7 @@ block content
 								each user, key in users
 									each report, index in users[key].reports
 										tr(class=report.report > 0 ? "" : "negative-report")
-											td.mdl-data-table__cell--non-numeric #{index +1}
+											td.mdl-data-table__cell--non-numeric #{report.timestamp}
 											//- td.bal-cell.personal-report-time #{report.timestamp}
 											td.bal-cell.personal-report #{report.report}
 		div.pop-up#report-pop
