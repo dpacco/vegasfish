@@ -205,7 +205,7 @@ $( document ).ready(function() {
 		}
 		setTimeout(function(){
 			changeNumbers()
-		},300)
+		},2000)
 	  }
 
 //dealing with time formating
