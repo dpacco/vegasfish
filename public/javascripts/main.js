@@ -203,7 +203,9 @@ $( document ).ready(function() {
 				$(this).text(index+1);
 			})
 		}
-		changeNumbers()
+		setTimeout(function(){
+			changeNumbers()
+		},300)
 	  }
 
 //dealing with time formating
