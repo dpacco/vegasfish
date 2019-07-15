@@ -127,6 +127,8 @@ block content
 											//- th.mdl-data-table__cell--non-numeric Time
 											th.mdl-data-table__header#balance-col 💸
 									tbody
+									td.mdl-data-table__cell--non-numeric 0
+									td.bal-cell.personal-report 0
 									each report, index in users[key].reports
 										tr(class=report.report > 0 ? "" : "negative-report")
 											td.mdl-data-table__cell--non-numeric #{index +1}
@@ -146,6 +148,8 @@ block content
 										//- th.mdl-data-table__cell--non-numeric Time
 										th.mdl-data-table__header#balance-col 💸
 								tbody
+								td.mdl-data-table__cell--non-numeric.team-row 0
+								td.bal-cell.personal-report 0
 								each user, key in users
 									each report, index in users[key].reports
 										tr(class=report.report > 0 ? "" : "negative-report")
