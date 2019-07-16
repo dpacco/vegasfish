@@ -9,7 +9,8 @@ $( document ).ready(function() {
 	function setCookie(key, value) {
 	    var expires = new Date();
 	    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
-	    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+		document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+		console.log('cookie set to ' + document.cookie)
 	}
 
 	function getCookie(key) {
@@ -70,8 +71,11 @@ $( document ).ready(function() {
 
 	$(".login-li").click(function(){
 		var selectedUser = this.id
+		var expires = new Date();
+	    expires.setTime(expires.getTime() + (100 * 24 * 60 * 60 * 1000));
+		document.cookie = 'user=' + selectedUser + ';expires=' + expires.toUTCString();
 		console.log('client sends: ' + selectedUser)
-		document.cookie = 'user=' + selectedUser;
+		console.log('cookie set to ' + document.cookie)
 
 		$.get("/", {
 			selectedUser: selectedUser
