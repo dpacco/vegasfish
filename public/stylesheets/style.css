@@ -95,7 +95,7 @@ a {
 
 
 .mdl-layout__content {
-  margin: 16px;
+  /* margin: 16px; */
   overflow: visible;
 }
 
@@ -409,6 +409,27 @@ form {
 .avatar {
 	display: flex;
     justify-content: space-around;
+}
+
+/* Winners */
+
+.first-place,
+.second-place,
+.third-place {
+  font-weight: 900;
+}
+
+.first-place{
+  background-color: #ffd900;
+  font-weight: bold;
+}
+
+.second-place{
+  background-color: #ffd900af
+}
+
+.third-place{
+  background-color: #ffd90050
 }
 
 .avatar-wrapper {

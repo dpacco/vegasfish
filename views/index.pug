@@ -69,10 +69,10 @@ block content
 						table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp#mainTable
 							tbody
 							each user, key in users
-								tr(class=user.balance > -1 ? "" : "negative-report")
+								tr(class=user.balance > -1 ? "" : "negative-report").main-tr
 									td.mdl-data-table__cell--non-numeric 
 										img.table-avatar(src = user.image)
-										| #{user.name}
+										span.img-user-name #{user.name}
 									td.bal-cell #{user.balance}
 									td.bal-icon-cell $
 									td.bal-icon

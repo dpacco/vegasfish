@@ -339,21 +339,21 @@ $( document ).ready(function() {
 		showHideReports();
 	});
 
+	let colorWinners = function(){
+		let first = $('.main-tr')[0]
+		let second = $('.main-tr')[1]
+		let third = $('.main-tr')[2]
+
+		$(first).addClass('first-place');
+		$(second).addClass('second-place');
+		$(third).addClass('third-place');
+	}
+
 	showHideReports();
-
-	// showHideReports();
-
-	// setCookie('report-state', reportState)	
-
-	
-	//- script end
-
-
-
-
-	console.log( "ready!" );
 	sortTable();
 	sortTeamTable();
+	colorWinners();
+	console.log( "ready!" );
 
 });
 
