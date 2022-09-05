@@ -14,28 +14,10 @@
       "name": "Amit",
       "reports": []
     },
-    "ronenc": {
-      "balance": 0,
-      "image": "./images/ronenc.jpg",
-      "name": "Ronen",
-      "reports": []
-    },
     "liorg": {
       "balance": 0,
       "image": "./images/liorg.jpg",
       "name": "Lior",
-      "reports": []
-    },
-    "michalc": {
-      "balance": 0,
-      "image": "./images/michalc.jpg",
-      "name": "Michali",
-      "reports": []
-    },
-    "nadavg": {
-      "balance": 0,
-      "image": "./images/nadavg.jpg",
-      "name": "Nadav",
       "reports": []
     },
     "noamg": {
@@ -44,23 +26,17 @@
       "name": "Noram",
       "reports": []
     },
-    "sagil": {
-      "balance": 0,
-      "image": "./images/sagil.jpg",
-      "name": "Sagi",
-      "reports": []
-    },
     "yohain": {
       "balance": 0,
       "image": "./images/yohain.jpg",
       "name": "Yohai",
       "reports": []
     },
-    "yonig": {
+    "dolevd": {
       "balance": 0,
-      "image": "./images/yonig.jpg",
-      "name": "Yoni",
+      "image": "./images/dolevd.jpg",
+      "name": "Dolev",
       "reports": []
-    }
+    },
   }
 }
