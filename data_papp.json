@@ -1,6 +1,12 @@
 {
   "main-image": "https://dynaimage.cdn.cnn.com/cnn/q_auto,w_900,c_fill,g_auto,h_506,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F180313182911-01-las-vegas-travel-strip.jpg",
   "users": {
+    "dolevd": {
+      "balance": 0,
+      "image": "./images/dolevd.jpg",
+      "name": "Dolev",
+      "reports": []
+    },
     "dorp": {
       "balance": 0,
       "image": "./images/dorp.jpg",
@@ -8,10 +14,34 @@
       "reports": [
       ]
     },
+    "dort": {
+    // "dort": {
+    //   "balance": 0,
+    //   "image": "./images/dort.jpg",
+    //   "name": "Dortal",
+    //   "reports": []
+    // },
+    // "eladh": {
+    //   "balance": 0,
+    //   "image": "./images/eladh.jpg",
+    //   "name": "Neshek",
+    //   "reports": []
+    // },
     "amith": {
       "balance": 0,
+      "image": "./images/dort.jpg",
+      "name": "Dortal",
       "image": "./images/amith.jpg",
       "name": "Amit",
+      "reports": []
+    },
+    "eladh": {
+    "ronenc": {
+      "balance": 0,
+      "image": "./images/eladh.jpg",
+      "name": "Neshek",
+      "image": "./images/ronenc.jpg",
+      "name": "Ronen",
       "reports": []
     },
     "liorg": {
@@ -20,10 +50,29 @@
       "name": "Lior",
       "reports": []
     },
+    "michalc": {
+      "balance": 0,
+      "image": "./images/michalc.jpg",
+      "name": "Michali",
+      "reports": [
+      ]
+    },
+    "nadavg": {
+      "balance": 0,
+      "image": "./images/nadavg.jpg",
+      "name": "Nadav",
+      "reports": []
+    },
     "noamg": {
       "balance": 0,
       "image": "./images/noamg.jpg",
       "name": "Noram",
+      "reports": []
+    },
+    "sagil": {
+      "balance": 0,
+      "image": "./images/sagil.jpg",
+      "name": "Sagi",
       "reports": []
     },
     "yohain": {
@@ -32,10 +81,10 @@
       "name": "Yohai",
       "reports": []
     },
-    "dolevd": {
+    "yonig": {
       "balance": 0,
-      "image": "./images/dolevd.jpg",
-      "name": "Dolev",
+      "image": "./images/yonig.jpg",
+      "name": "Yoni",
       "reports": []
     }
   }
